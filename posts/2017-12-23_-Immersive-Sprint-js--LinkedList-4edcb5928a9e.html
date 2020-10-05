@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>[Immersive_Sprint.js] LinkedList</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">[Immersive_Sprint.js] LinkedList</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Linked List 란 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="411d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="00e7" id="00e7" class="graf graf--h3 graf--leading graf--title">[Immersive_Sprint.js] LinkedList</h3><h3 name="81c7" id="81c7" class="graf graf--h3 graf-after--h3">Linked List 란 ?</h3><blockquote name="67a2" id="67a2" class="graf graf--blockquote graf-after--h3">각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료 구조이다.</blockquote><figure name="b70e" id="b70e" class="graf graf--figure graf-after--blockquote"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 219px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 31.3%;"></div><img class="graf-image" data-image-id="1*2yayTk422k44QjyDRV3baQ.png" data-width="1072" data-height="336" src="https://cdn-images-1.medium.com/max/800/1*2yayTk422k44QjyDRV3baQ.png"></div><figcaption class="imageCaption">Linked List</figcaption></figure><p name="88ca" id="88ca" class="graf graf--p graf-after--figure">단일 링크드 리스트를 구현을 하였고, 구현을 위해 필요한 메소드는 아래와 같다.</p><p name="a1a0" id="a1a0" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">list</code> (type: object)</p><ul class="postList"><li name="e927" id="e927" class="graf graf--li graf-after--p">head와 tail 변수를 갖고 있으며 구현된 linked list의 처음(head)과 끝(tail) 노드를 가리킨다.</li></ul><p name="fecf" id="fecf" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">- list.head</code> (type: object)</p><ul class="postList"><li name="1be9" id="1be9" class="graf graf--li graf-after--p">head 변수를 담고 있어 나중에 head를 제거할 때 쉽게 사용할 수 있다.</li></ul><p name="3bf1" id="3bf1" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">- list.tail</code> (type: object)</p><ul class="postList"><li name="293b" id="293b" class="graf graf--li graf-after--p"><code class="markup--code markup--li-code">addToTail()</code> 메소드를 사용할 때 가장 끝에 노드를 붙일 때 사용한다.</li><li name="96f2" id="96f2" class="graf graf--li graf-after--li">head를 통해서 linked list의 tail에 붙이는 방법도 있지만, 이렇게 할 경우에는 노드가 추가로 붙을때 마다 head 부터 끝 노드를 찾는 번거로움(?) 이 필요해진다. (물론 complexity의 차이는 있다.)</li></ul><p name="e58f" id="e58f" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">node</code> (type: object)</p><ul class="postList"><li name="c14c" id="c14c" class="graf graf--li graf-after--p"><code class="markup--code markup--li-code">Node</code> 객체를 상속 받아서 <code class="markup--code markup--li-code">new node</code> 를 생성 할 때마다 해당 객체를 상속 받게 된다.</li></ul><p name="f0ea" id="f0ea" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">- node.value</code> (type: number)</p><ul class="postList"><li name="be05" id="be05" class="graf graf--li graf-after--p">node를 생성할때 주어진 value 값이 저장된다.</li></ul><p name="63aa" id="63aa" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">- node.next</code> (type: object)</p><ul class="postList"><li name="0e4f" id="0e4f" class="graf graf--li graf-after--p">다음 노드를 가리키는 값이 저장되어 있으며, 없을 경우에는 <code class="markup--code markup--li-code">null</code> 이다.</li></ul><p name="9f56" id="9f56" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">addToTail()</code></p><ul class="postList"><li name="a796" id="a796" class="graf graf--li graf-after--p">linked list의 가장 끝(tail)에 새로운 node를 추가할 때 사용할 메소드 이다.</li><li name="3d5d" id="3d5d" class="graf graf--li graf-after--li"><code class="markup--code markup--li-code">list.tail</code>을 이용하여 구현한다.</li></ul><p name="7551" id="7551" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">removeHead()</code></p><ul class="postList"><li name="a4c4" id="a4c4" class="graf graf--li graf-after--p">linked list의 가장 앞(head)를 삭제할 때 사용할 메소드 이다.</li><li name="beab" id="beab" class="graf graf--li graf-after--li">삭제시에 <code class="markup--code markup--li-code">list.head</code> 을 이용하여 구현 하며 삭제 전 head의 값을 <code class="markup--code markup--li-code">node.next</code> 노드로 변경 한 후 기존 head node를 삭제 해야 한다.</li></ul><p name="2478" id="2478" class="graf graf--p graf-after--li"><code class="markup--code markup--p-code">contains()</code></p><ul class="postList"><li name="b86d" id="b86d" class="graf graf--li graf-after--p">Linked List 로 구현된 객체에서 <code class="markup--code markup--li-code">node.value</code> 가 존재 하는지 확인한다.</li><li name="a770" id="a770" class="graf graf--li graf-after--li"><code class="markup--code markup--li-code">list.head</code> 부터 value 값이 존재하는지 확인해야 하므로 worst case의 경우에는 모든 link를 다 봐야 하는 경우가 생긴다. ( 찾고자 하는 값이 가장 끝 노드에 위치할 경우)</li><li name="983b" id="983b" class="graf graf--li graf-after--li">이러한 경우 때문에 Linked List의 <strong class="markup--strong markup--li-strong">최악의시간복잡도 (O)</strong>는 <code class="markup--code markup--li-code"><strong class="markup--strong markup--li-strong">O(n)</strong></code> 이 된다.</li></ul><p name="c816" id="c816" class="graf graf--p graf-after--li">메소드들을 구현하기 위해서는 아래와 같은 메커니즘으로 생각해 볼 수 있다.</p><figure name="3ab3" id="3ab3" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 740px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 105.69999999999999%;"></div><img class="graf-image" data-image-id="1*vHw13z3sSwuquUqltgS2uw.png" data-width="1396" data-height="1476" src="https://cdn-images-1.medium.com/max/800/1*vHw13z3sSwuquUqltgS2uw.png"></div><figcaption class="imageCaption">Linked List</figcaption></figure><p name="0261" id="0261" class="graf graf--p graf-after--figure">위의 변수들과 메소드들로 구현한 소스코드는 아래와 같다.</p><pre name="808d" id="808d" class="graf graf--pre graf-after--p">var LinkedList = function() {<br>  var list = {};<br>  list.head = null;<br>  list.tail = null;</pre><pre name="fdad" id="fdad" class="graf graf--pre graf-after--pre">list.addToTail = function(value) {<br>    let node = new Node(value);<br>    if (!this.head){<br>      this.head = node;<br>      this.tail = node;<br>    }<br>    else {<br>      this.tail.next = node;<br>      this.tail = node;<br>    }<br>    return node;<br>  };</pre><pre name="38f9" id="38f9" class="graf graf--pre graf-after--pre">list.removeHead = function() {<br>    var newCurrent = this.head.next;<br>    var removedValue = this.head;<br>    removedValue.next = null;<br>    this.head = newCurrent;<br>    return removedValue.value;<br>  };</pre><pre name="4cbe" id="4cbe" class="graf graf--pre graf-after--pre">list.contains = function(target) {<br>    var current = this.head;<br>    while ( current ){<br>      if ( current.value === target ){ return true;}<br>      else current = current.next;<br>    }<br>    return false;<br>  };<br>  return list;<br>};</pre><pre name="c96c" id="c96c" class="graf graf--pre graf-after--pre">var Node = function(value) {<br>  var node = {};<br>  node.value = value;<br>  node.next = null;</pre><pre name="e9c8" id="e9c8" class="graf graf--pre graf-after--pre">return node;<br>};</pre><p name="c55f" id="c55f" class="graf graf--p graf-after--pre">위의 코드를 잘보면 <code class="markup--code markup--p-code">tail.next</code> 에 새로운 객체를 넣어서 계속 링크를 이어주는 역할을 하는데 이부분이<strong class="markup--strong markup--p-strong"> call by reference </strong>를 하는 부분이다.</p><p name="4b97" id="4b97" class="graf graf--p graf-after--p">아래 처럼 링크가 생성 되었다고 보자.</p><pre name="cc45" id="cc45" class="graf graf--pre graf-after--p">list = {</pre><pre name="b500" id="b500" class="graf graf--pre graf-after--pre">    list.head = { value : 3, next: null };</pre><pre name="312d" id="312d" class="graf graf--pre graf-after--pre">list.tail = { value : 3, next: { value : 4, next: { value : 5, next: null } } <br>};</pre><pre name="8f53" id="8f53" class="graf graf--pre graf-after--pre">};</pre><p name="de1d" id="de1d" class="graf graf--p graf-after--pre">node가 생성 될때마다 <code class="markup--code markup--p-code">list.next</code> 에 value, key가 추가로 들어가게 되는데, 눈으로 봤을 때는 저렇게 생각 할 수 있지만, <strong class="markup--strong markup--p-strong">내부적으로는 주소값을 참조 하고 있는 구조 이다.</strong></p><p name="19f8" id="19f8" class="graf graf--p graf-after--p">그림을 보면서 이해하자</p><figure name="dead" id="dead" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 334px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 47.699999999999996%;"></div><img class="graf-image" data-image-id="1*JW66KbpcsM8T07dmAl0EGg.png" data-width="1810" data-height="864" src="https://cdn-images-1.medium.com/max/800/1*JW66KbpcsM8T07dmAl0EGg.png"></div></figure><figure name="a799" id="a799" class="graf graf--figure graf-after--figure"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 433px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 61.9%;"></div><img class="graf-image" data-image-id="1*Nanvg0GgUzSddkTmo1S4TQ.png" data-width="1594" data-height="986" src="https://cdn-images-1.medium.com/max/800/1*Nanvg0GgUzSddkTmo1S4TQ.png"></div></figure><p name="d255" id="d255" class="graf graf--p graf-after--figure">위처럼 주소값들을 참조하게 된다.</p><figure name="318e" id="318e" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 138px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 19.7%;"></div><img class="graf-image" data-image-id="1*a35IowLW7UJwI_3xcp_Zlg.png" data-width="730" data-height="144" src="https://cdn-images-1.medium.com/max/800/1*a35IowLW7UJwI_3xcp_Zlg.png"></div></figure><p name="559d" id="559d" class="graf graf--p graf-after--figure graf--trailing">잊지 않기위하여 정리 ^^</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/4edcb5928a9e"><time class="dt-published" datetime="2017-12-23T08:42:56.399Z">December 23, 2017</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/immersive-sprint-js-linkedlist-4edcb5928a9e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

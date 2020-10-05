@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Arrow 함수에서의 this</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Arrow 함수에서의 this</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+일반적인 this 의 scope
+</section>
+<section data-field="body" class="e-content">
+<section name="f276" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0401" id="0401" class="graf graf--h3 graf--leading graf--title">Arrow 함수에서의 this</h3><pre name="bd28" id="bd28" class="graf graf--pre graf-after--h3">var Car = function ( position = 0 ){<br>  var someInstance = {};<br>  someInstance.position = position;<br>  <br>  // Arrow Function 내부에서의 this는 다른 외부 스코프의 this를 가리킨다.     <br>  // someInstance.move = () =&gt; this.position+=1;<br>  <br>  someInstance.move = function (){<br>    return this.position+=1;<br>  }<br>  return someInstance;<br>}</pre><pre name="bda9" id="bda9" class="graf graf--pre graf-after--pre">var car = new Car (2);<br>console.log(car);<br>car.move();<br>car.move();<br>car.move();</pre><pre name="2b2c" id="2b2c" class="graf graf--pre graf-after--pre">console.log(car.position);</pre><h4 name="9795" id="9795" class="graf graf--h4 graf-after--pre">일반적인 this 의 scope</h4><p name="b6ef" id="b6ef" class="graf graf--p graf-after--h4">일반 함수 내부에 선언 된 this는 생성자가 인스턴스를 생성함에 따라 this의 범위를 생성된 인스턴스 내부의 scope가 this의 범위가 된다.</p><p name="ff07" id="ff07" class="graf graf--p graf-after--p">일반 Function 내부에서의 this를 찍어보면 다음과 같이 표시가 된다. <br><code class="markup--code markup--p-code">this: { position: 2, move: [Function] }</code></p><p name="407a" id="407a" class="graf graf--p graf-after--p">그래서 위처럼 car.move를 하게되면 자신의 position의 count를 하나씩 증가 시킨다.</p><h4 name="e8fd" id="e8fd" class="graf graf--h4 graf-after--p">Arrow Function 에서 this 의 Scope</h4><p name="5eea" id="5eea" class="graf graf--p graf-after--h4">Arrow함수의 this는 위와 다르게 동작한다. 자신 고유의 this를 갖지 않으며 외부 스코프에서 계승을 받게 된다.</p><p name="f3cc" id="f3cc" class="graf graf--p graf-after--p graf--trailing">내부에서 this를 찍어보면 다음과 같이 표기된다. <code class="markup--code markup--p-code">Car { position : NaN }</code></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/4c0e716b4c3c"><time class="dt-published" datetime="2018-01-19T06:05:17.868Z">January 19, 2018</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8-this-%EC%9D%98-scope-4c0e716b4c3c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

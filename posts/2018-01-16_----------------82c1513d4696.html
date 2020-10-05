@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>코드워즈 문제 알고리즘 정리</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">코드워즈 문제 알고리즘 정리</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+요즘 www.codewars.com 에서 문제를 풀고 있는데, 내가 푼 풀이 방식과 clever 를 받은 문제 풀이 방식을 비교해서 정리해 두려고 한다.
+</section>
+<section data-field="body" class="e-content">
+<section name="793c" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="401b" id="401b" class="graf graf--h3 graf--leading graf--title">코드워즈 문제 알고리즘 정리</h3><p name="48b0" id="48b0" class="graf graf--p graf-after--h3">요즘 <a href="http://www.codewars.com" data-href="http://www.codewars.com" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">www.codewars.com</a> 에서 문제를 풀고 있는데, 내가 푼 풀이 방식과 clever 를 받은 문제 풀이 방식을 비교해서 정리해 두려고 한다.</p><h3 name="2c10" id="2c10" class="graf graf--h3 graf-after--p">문제 (6kyu)</h3><h4 name="5e70" id="5e70" class="graf graf--h4 graf-after--h3">Persistent Bugger.</h4><ul class="postList"><li name="f8f3" id="f8f3" class="graf graf--li graf-after--h4">숫자를 Input으로 받아서 각 자리수를 곱한다.</li><li name="38be" id="38be" class="graf graf--li graf-after--li">위 동작을 반복하여 한 자리 수가 나올 때까지 반복 한다.</li><li name="1ff1" id="1ff1" class="graf graf--li graf-after--li">반복한 횟수를 출력한다.</li></ul><p name="f8bf" id="f8bf" class="graf graf--p graf-after--li">ex) persistence(717)</p><ul class="postList"><li name="aefb" id="aefb" class="graf graf--li graf-after--p">7 * 1 * 7 = 49</li><li name="9e10" id="9e10" class="graf graf--li graf-after--li">4 *9 = 36</li><li name="5387" id="5387" class="graf graf--li graf-after--li">3* 6 = 18</li><li name="e019" id="e019" class="graf graf--li graf-after--li">1* 8 = 8 <em class="markup--em markup--li-em">( end )</em></li></ul><pre name="c15f" id="c15f" class="graf graf--pre graf-after--li">console.log(persistence(717)) //4</pre><h4 name="d49f" id="d49f" class="graf graf--h4 graf-after--pre">Solve</h4><pre name="2429" id="2429" class="graf graf--pre graf-after--h4">function persistence(num) {<br>  var res, count = 0;<br>  while ( num.toString().length !== 1 ){<br>    res = [...num.toString()].reduce((first, last) =&gt; Number(first) * Number(last));<br>    count ++;<br>    num = res;<br>  }<br>  return count;<br>}</pre><h4 name="6471" id="6471" class="graf graf--h4 graf-after--pre">Clever Solve</h4><p name="ecd1" id="ecd1" class="graf graf--p graf-after--h4">삼항연산자와 재귀 연산 그리고 reduce 연산을 사용하여 풀었다.</p><p name="8224" id="8224" class="graf graf--p graf-after--p">짧아. 근데 어렵다.</p><pre name="519a" id="519a" class="graf graf--pre graf-after--p graf--trailing">const persistence = num =&gt; {<br>  return `${num}`.length &gt; 1 ? <br>     1 + persistence(`${num}`.split(&#39;&#39;).reduce((a, b) =&gt; a * +b))      <br>     : 0; <br>}</pre></div></div></section><section name="247f" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="362a" id="362a" class="graf graf--p graf--leading">number를 스트링 또는 배열연산을 하기 위해서 toString 같은 것을 썼는데, ES6 문법 ` `을 이용해서 강제 String을 만들수 있구나!</p><p name="8751" id="8751" class="graf graf--p graf-after--p graf--trailing">내코드도 충분히 수정할수는 있지만, 이정도로 짧은 코드를 고쳐 쓰긴 시간낭비다 한문제 더 풀어야지</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/82c1513d4696"><time class="dt-published" datetime="2018-01-16T07:03:19.575Z">January 16, 2018</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/%EC%BD%94%EB%93%9C%EC%9B%8C%EC%A6%88-%EB%AC%B8%EC%A0%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EB%A6%AC-82c1513d4696" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

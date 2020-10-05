@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>[Session #1] Basic of Javascript</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">[Session #1] Basic of Javascript</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+변수
+</section>
+<section data-field="body" class="e-content">
+<section name="f618" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="c38b" id="c38b" class="graf graf--p graf--leading">[Session #1] Basic of Javascript</p><h3 name="be9d" id="be9d" class="graf graf--h3 graf-after--p">변수</h3><ol class="postList"><li name="3b03" id="3b03" class="graf graf--li graf-after--h3">변수의 이름은 애매하지 않고 확실하게 정해주는 것이 좋다.</li><li name="9bb1" id="9bb1" class="graf graf--li graf-after--li">var / let / const 과 같은 것으로 변수를 선언 한다.</li><li name="2e19" id="2e19" class="graf graf--li graf-after--li">긴 변수의 이름은 Camel Case를 이용한다. <em class="markup--em markup--li-em">(ex&gt; limitOfNumber)</em></li><li name="dc86" id="dc86" class="graf graf--li graf-after--li">변수 선언시에는 스코프를 고려한다.</li></ol><h4 name="7a56" id="7a56" class="graf graf--h4 graf-after--li">스코프</h4><p name="f826" id="f826" class="graf graf--p graf-after--h4">변수가 소스코드 스크립트 안의 어떤 곳에서 참조 할 수 있는지를 결정하는 개념이며, JavaScript에서는 두 가지의 스코프로 분류 할 수 있다.</p><ul class="postList"><li name="0049" id="0049" class="graf graf--li graf-after--p">Global Scope : 함수 바깥에서 선언한 변수</li><li name="a711" id="a711" class="graf graf--li graf-after--li">Local Scope : 함수 내부에서 선언한 변수</li></ul><figure name="d525" id="d525" class="graf graf--figure graf-after--li"><div class="aspectRatioPlaceholder is-locked" style="max-width: 544px; max-height: 242px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 44.5%;"></div><img class="graf-image" data-image-id="1*8YRisHoPmKoI829RTMmD6A.jpeg" data-width="544" data-height="242" src="https://cdn-images-1.medium.com/max/800/1*8YRisHoPmKoI829RTMmD6A.jpeg"></div><figcaption class="imageCaption">Local Scope 와 Global Scope</figcaption></figure><h4 name="d737" id="d737" class="graf graf--h4 graf-after--figure">console.log(scopeTest())</h4><ul class="postList"><li name="6d6d" id="6d6d" class="graf graf--li graf-after--h4">scopeTest() 함수는 내부에서 local scope로 사용될 str 변수를 선언해 두고 있다.</li><li name="65c2" id="65c2" class="graf graf--li graf-after--li">scopeTest() 함수 내에 있는 str변수는 scopeTest() 함수 내에서만 사용되게 되며, Local Scope에 해당하는 str 값을 return 해주게된다.</li><li name="70ee" id="70ee" class="graf graf--li graf-after--li">var str = ‘Local Scope’; 는 함수내에서 선언한것이고, 글로벌 변수 str에는 영향을 미치지 않는다.</li><li name="5678" id="5678" class="graf graf--li graf-after--li">다만, str = ‘Local Scope’와 같이 변수 재선언을 하지 않고 글로벌 변수를 가져다 쓸 경우에는 글로벌 변수가 담고 있는 값이 ‘Global Scope’ 에서 ‘Local Scope’로 변경이 되니 주의 해서 사용해야 한다.</li><li name="c2b7" id="c2b7" class="graf graf--li graf-after--li">가능하면 변수를 사용할 때마다 let(블록유효범위를 갖는 지역변수)을 통해 선언하는 것이 바람직하다.</li></ul><h4 name="5db1" id="5db1" class="graf graf--h4 graf-after--li">console.log(str);</h4><ul class="postList"><li name="a951" id="a951" class="graf graf--li graf-after--h4 graf--trailing">str을 console.log로 출력할 경우에는 global로 선언 되어 있는 str을 출력하게된다.</li></ul></div></div></section><section name="13e1" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="057f" id="057f" class="graf graf--h3 graf--leading">Logical Operators</h3><h4 name="36a2" id="36a2" class="graf graf--h4 graf-after--h3">Logical Not</h4><pre name="9b2f" id="9b2f" class="graf graf--pre graf-after--h4">!true       // false<br>!(3&lt;2)      // true</pre><h4 name="50d9" id="50d9" class="graf graf--h4 graf-after--pre">OR</h4><pre name="11f7" id="11f7" class="graf graf--pre graf-after--h4">true || true       // true<br>false || true      // true<br>false || false     // false</pre><h4 name="17bd" id="17bd" class="graf graf--h4 graf-after--pre">AND</h4><pre name="f302" id="f302" class="graf graf--pre graf-after--h4 graf--trailing">true || true       // true<br>false || true      // false<br>false || false     // false</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/50721d285681"><time class="dt-published" datetime="2017-12-06T06:02:51.500Z">December 6, 2017</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/pre-course-%EB%A5%BC-%EB%81%9D%EB%82%B4%EB%A9%B4%EC%84%9C-%EC%A0%95%EB%A6%AC-50721d285681" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>[Immersive_sprint.js] 2 주차</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">[Immersive_sprint.js] 2 주차</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+1주차에는 뭔가 데이터 구조 즉,, 이론에 입각한 수업이 많아서 이렇게 저렇게 정리를 많이 했는데, 이번엔 즉석으로 알고리즘 문제를 풀고 주어진 문제를 해결하는 방식의 Sprint가 많아서 한번에 모아서 정리를 해보려고 한다.
+</section>
+<section data-field="body" class="e-content">
+<section name="8bc4" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1783" id="1783" class="graf graf--h3 graf--leading graf--title">[Immersive_sprint.js] 2 주차</h3><p name="0718" id="0718" class="graf graf--p graf-after--h3">1주차에는 뭔가 데이터 구조 즉,, 이론에 입각한 수업이 많아서 이렇게 저렇게 정리를 많이 했는데, 이번엔 즉석으로 알고리즘 문제를 풀고 주어진 문제를 해결하는 방식의 Sprint가 많아서 한번에 모아서 정리를 해보려고 한다.</p><blockquote name="6f55" id="6f55" class="graf graf--pullquote graf-after--p">Week 2 Day 1~2<strong class="markup--strong markup--pullquote-strong"> </strong>— Inheritance Patterns (beesbeesbees, subclass dance party, 6ees6ees6ees sprint)</blockquote><blockquote name="8526" id="8526" class="graf graf--pullquote graf-after--pullquote">Week 2 Day 3~4 — Algorithms (n-queens sprint)</blockquote><blockquote name="2a6f" id="2a6f" class="graf graf--pullquote graf-after--pullquote">Week 2 Day 5~6 — Browser Apps jQuery and ajax (Chatterbox client sprint)</blockquote><h3 name="99be" id="99be" class="graf graf--h3 graf-after--pullquote"><strong class="markup--strong markup--h3-strong">Inheritance Pattern</strong></h3><p name="93d1" id="93d1" class="graf graf--p graf-after--h3">1주차에 각종 상속 방법에 대해서 배웠고, 해당 sprint에서는 prototype을 이용하여 상속 패턴을 배웠다.</p><p name="2fc0" id="2fc0" class="graf graf--p graf-after--p">추가로 ES6 문법 <code class="markup--code markup--p-code">class</code> 를 이용하여 상속을 이용해서도 작성을 해보았다. <br>( beebeebee는 prototype을 이용하여 작석하고, 6ees6ees6ees가 ES6문법을 이용하여 작성하였다. )</p><p name="c324" id="c324" class="graf graf--p graf-after--p">글로 쓰려니 너무 거창하니.. 약간의 코드를 첨부해야겠다.</p><p name="b1ef" id="b1ef" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Prototype 형태로 작성한 beebeebee</strong></p><pre name="94a1" id="94a1" class="graf graf--pre graf-after--p">var Grub = function() {</pre><pre name="d9c8" id="d9c8" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.age = 0;</pre><pre name="b5aa" id="b5aa" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.color = &quot;pink&quot;;</pre><pre name="810d" id="810d" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.food = &quot;jelly&quot;;</pre><pre name="dc03" id="dc03" class="graf graf--pre graf-after--pre">};</pre><pre name="b334" id="b334" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">Grub.prototype.eat</strong>  = function() {};<br><br></pre><pre name="25b9" id="25b9" class="graf graf--pre graf-after--pre">var Bee = function() {</pre><pre name="42ee" id="42ee" class="graf graf--pre graf-after--pre">    <strong class="markup--strong markup--pre-strong">Grub.call(<em class="markup--em markup--pre-em">this</em>);</strong></pre><pre name="c8ff" id="c8ff" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.age = 5;</pre><pre name="49fa" id="49fa" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.color = &quot;yellow&quot;;</pre><pre name="b8b6" id="b8b6" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">    this</em>.job = &quot;keep on growing&quot;;</pre><pre name="4be8" id="4be8" class="graf graf--pre graf-after--pre">};</pre><pre name="3e12" id="3e12" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">Bee.prototype = Object.create(Grub.prototype);</strong></pre><pre name="24bb" id="24bb" class="graf graf--pre graf-after--pre">Bee.prototype.constructor = Bee;</pre><p name="6f85" id="6f85" class="graf graf--p graf-after--pre"><code class="markup--code markup--p-code">bee.protytpe = object.create(Grub.prototype)</code> 을 통해 bee의 prototype을 grub의 protytpe에 연결해 준다.</p><p name="bdc1" id="bdc1" class="graf graf--p graf-after--p">그리고 <code class="markup--code markup--p-code">bee.prototype.constructor = Bee;</code> 를 하여 bee의 prototype을 을 자기 자신을 가리키게 한다. 위처럼 하지 않게 되면 bee의 this범위가 명확하지 않다(?) 라고 하는데 prototype공부를 좀더 해서 이부분은 보충을 해야겠다.</p><h4 name="6534" id="6534" class="graf graf--h4 graf-after--p">ES6 문법을 이용한 class 형태 작성법</h4><pre name="0a27" id="0a27" class="graf graf--pre graf-after--h4"><strong class="markup--strong markup--pre-strong">class</strong> Grub {</pre><pre name="553d" id="553d" class="graf graf--pre graf-after--pre">    constructor(){</pre><pre name="916c" id="916c" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.age = 0;</pre><pre name="b19b" id="b19b" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.color = &quot;pink&quot;;</pre><pre name="f408" id="f408" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.food = &quot;jelly&quot;;</pre><pre name="b86b" id="b86b" class="graf graf--pre graf-after--pre">    }</pre><pre name="ef4c" id="ef4c" class="graf graf--pre graf-after--pre">    eat(){}</pre><pre name="d957" id="d957" class="graf graf--pre graf-after--pre">};</pre><pre name="fbd9" id="fbd9" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">class</strong> Bee <strong class="markup--strong markup--pre-strong">extends</strong> Grub{</pre><pre name="de10" id="de10" class="graf graf--pre graf-after--pre">    constructor(){</pre><pre name="d900" id="d900" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">       </em><strong class="markup--strong markup--pre-strong"><em class="markup--em markup--pre-em"> super</em>();</strong></pre><pre name="ec78" id="ec78" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.age = 5;</pre><pre name="7499" id="7499" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.color = &quot;yellow&quot;</pre><pre name="b12c" id="b12c" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">        this</em>.job = &quot;Keep on growing&quot;</pre><pre name="94dd" id="94dd" class="graf graf--pre graf-after--pre">    }</pre><pre name="7b30" id="7b30" class="graf graf--pre graf-after--pre">};</pre><p name="80ee" id="80ee" class="graf graf--p graf-after--pre">protytpe을 이용한 작성법 보다 훨씬 간단하다.</p><p name="af88" id="af88" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">class [child] extends [parent]</code> 로 작성하여 상속 받을 수 있다.</p><p name="6dc7" id="6dc7" class="graf graf--p graf-after--p">super()를 통해 부모 클래스를 상속 받을 수 있다.</p><p name="b09b" id="b09b" class="graf graf--p graf-after--p graf--trailing">위 에서 <code class="markup--code markup--p-code">this.age</code> 와 <code class="markup--code markup--p-code">this.color</code> 는 <code class="markup--code markup--p-code">Bee</code> 자신의 값( 5, yellow)를 사용하게 되지만 <code class="markup--code markup--p-code">this.food</code>를 호출하였을 때에도 Bee는 해당 값을 가지고 있지 않지만 부모생성자와 연결 되어 있기 때문에 본인이 값이 없으면 부모가 값을 가지고 있는지 확인하고 있으면 그 값인 <code class="markup--code markup--p-code">jelly</code> 를 return 한다.</p></div></div></section><section name="a4ad" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ef79" id="ef79" class="graf graf--h3 graf--leading">Algorithm (n-queens)</h3><ol class="postList"><li name="6f96" id="6f96" class="graf graf--li graf-after--h3">체스판에 퀸 ( 상하 좌우 대각선까지 모두 움직일 수 있는 ) 을 최대 개수를 놓을 수 있는 Matrix를 추출 하는 것</li><li name="eae9" id="eae9" class="graf graf--li graf-after--li">Matrix에 퀸을 최대로 놓을 수 있는 경우의 수를 구하는 알고리즘 문제이다.</li></ol><figure name="b122" id="b122" class="graf graf--figure graf-after--li"><div class="aspectRatioPlaceholder is-locked" style="max-width: 236px; max-height: 237px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 100.4%;"></div><img class="graf-image" data-image-id="1*RiiQHHEN2Vf5QPlwTD_qkA.png" data-width="236" data-height="237" src="https://cdn-images-1.medium.com/max/800/1*RiiQHHEN2Vf5QPlwTD_qkA.png"></div><figcaption class="imageCaption">chess</figcaption></figure><p name="f269" id="f269" class="graf graf--p graf-after--figure">위는 체스판에 퀸을 최대로 놓을수 있는(4개) 모형(?) 중에 하나이며 이러한 것들이 최대 n*n Matrix에서 몇개까지 만들 수 있는지를 풀어야 한다.</p><p name="430b" id="430b" class="graf graf--p graf-after--p">먼저 위의 문제를 푸려면 백트렉킹을 통해 풀어야 한다. 해당 내용은 문제를 풀고 난 뒤 관련 내용으로 인터넷 검색을 하여 약간의 정보를 취득했다.</p><p name="d61c" id="d61c" class="graf graf--p graf-after--p">백트래킹이란?</p><p name="1bcf" id="1bcf" class="graf graf--p graf-after--p">특정 노드에서 유망성(promising)을 점검하고, 유망하지 않다면 그 노드의 부모로 돌아가서(Backtracking) 다음 노드에 대한 검색을 계속하게 되는 절차입니다. 아래그림과 같이</p><figure name="ce5b" id="ce5b" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 451px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 64.4%;"></div><img class="graf-image" data-image-id="0*9QpV_n5TCWEh5R4o.png" data-width="1218" data-height="785" src="https://cdn-images-1.medium.com/max/800/0*9QpV_n5TCWEh5R4o.png"></div></figure><p name="83ea" id="83ea" class="graf graf--p graf-after--figure">어떻게 구현해야될 지는 알겠지만, 실제로 하지는 못했다.</p><p name="11f7" id="11f7" class="graf graf--p graf-after--p graf--trailing">나중에 꼭 해봐야겠다.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/3d53de65ddc7"><time class="dt-published" datetime="2018-01-14T14:32:03.249Z">January 14, 2018</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/immersive-sprint-js-2-%EC%A3%BC%EC%B0%A8-3d53de65ddc7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

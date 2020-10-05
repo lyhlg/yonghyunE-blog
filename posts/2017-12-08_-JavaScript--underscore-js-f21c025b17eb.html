@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>[JavaScript] underscore.js</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">[JavaScript] underscore.js</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+underscore 과제를 하면서 뭐하나 “와! 쉽다” 라고 생각하면서 푼 문제는 없다.
+</section>
+<section data-field="body" class="e-content">
+<section name="d2d2" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d91d" id="d91d" class="graf graf--h3 graf--leading graf--title">[JavaScript] underscore.js</h3><p name="5d0b" id="5d0b" class="graf graf--p graf-after--h3">underscore 과제를 하면서 뭐하나 “와! 쉽다” 라고 생각하면서 푼 문제는 없다.</p><p name="a7f9" id="a7f9" class="graf graf--p graf-after--p">이 과제는 <a href="http://underscorejs.org" data-href="http://underscorejs.org" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">underscore</a> (underbar) library를 일부 작성해보는게 목적이다.</p><p name="2615" id="2615" class="graf graf--p graf-after--p">링크를 참고해보면 약 70개? 정도 되는 함수를 제공한다. (세어보진 않았다 어디서본거같다)</p><p name="6cad" id="6cad" class="graf graf--p graf-after--p">일부는 javascript에 built-in 되어 있는 것들과 동일한 기능이 있고, 어떤 것들은 동일한 기능을 하는데 이름이 조금 다른 것들이 있다.</p><p name="b02c" id="b02c" class="graf graf--p graf-after--p graf--trailing">이중 내가 어려움을 겪었던 것들은 <a href="https://medium.com/@lyhlg0201/high-order-function-고차함수-a94ee6674c8c" data-href="https://medium.com/@lyhlg0201/high-order-function-고차함수-a94ee6674c8c" class="markup--anchor markup--p-anchor" target="_blank">higher order function</a> 이 대부분이었다. 함수에 함수가 던져지고.. 어렵다. ^^</p></div></div></section><section name="bd78" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b409" id="b409" class="graf graf--h3 graf--leading">_.each</h3><p name="69f1" id="69f1" class="graf graf--p graf-after--h3">먼저 <code class="markup--code markup--p-code">_.each</code> 함수 이다.</p><blockquote name="9604" id="9604" class="graf graf--blockquote graf-after--p">_.each(list, iteratee, [context])</blockquote><p name="c67f" id="c67f" class="graf graf--p graf-after--blockquote">list를 반복하여 값을 하나씩 꺼내 iteratee에 해당하는 함수에 집어 넣는다.</p><p name="72cd" id="72cd" class="graf graf--p graf-after--p">아래는 <code class="markup--code markup--p-code">_.each</code> 사용 예제 이며 결과 값이다.</p><pre name="4feb" id="4feb" class="graf graf--pre graf-after--p">var letters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];<br>var iterations = [];</pre><pre name="a818" id="a818" class="graf graf--pre graf-after--pre">_.each(letters, function(letter,index) {<br>   iterations.push([letter, index]);<br>});</pre><pre name="78e9" id="78e9" class="graf graf--pre graf-after--pre">----------------------------------<br>console.log(iterations);     // [[&#39;a&#39;,0] [&#39;b&#39;,1] [&#39;c&#39;,2]];</pre><p name="866e" id="866e" class="graf graf--p graf-after--pre">위 결과는 쉽게 값을 대입해보면 구할수 있지만, 위처럼 결과값을 구할 수 있도록 <code class="markup--code markup--p-code">_.each</code> 함수를 만드는것이 목적이다.</p><p name="1b5c" id="1b5c" class="graf graf--p graf-after--p">먼저, array일 경우와 object일 경우를 나눠서 생각을 했다. 위에는 모두 표현 하지 않았지만 마지막 parameter로 context를 받게되는데 이건 그냥 array나 object의 이름을 말한다.</p><p name="b956" id="b956" class="graf graf--p graf-after--p">array 일 경우 / object일 경우 ( 나는 constructor 속성을 사용했다. ) 서로 index 표현법이 다르니 그 부분만 바꿔서 아래와 같이 소스코드를 작성하였다.</p><pre name="6d07" id="6d07" class="graf graf--pre graf-after--p graf--trailing">_.each = function(collection, iterator) {<br>    if ( collection.constructor === Array){<br>      for ( var i = 0 ; i &lt; collection.length ; i ++ ){<br>        iterator(collection[i], i, collection);<br>      }<br>    }<br>    else if ( collection.constructor === Object){<br>      for ( var key in collection ){<br>        iterator(collection[key], key, collection);<br>      }<br>    }<br>};</pre></div></div></section><section name="8281" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f8db" id="f8db" class="graf graf--h3 graf--leading">_.reduce()</h3><p name="2a4f" id="2a4f" class="graf graf--p graf-after--h3">두번째로는 <code class="markup--code markup--p-code">_.reduce()</code> 함수이다. (이건어렵다. 내가작성한 것도 있지만, 좀더 최적화된 코드를 가지고 여기서는 다룬다.)</p><blockquote name="addc" id="addc" class="graf graf--blockquote graf-after--p">_.reduce(list, iteratee, [memo], [context])</blockquote><p name="7540" id="7540" class="graf graf--p graf-after--blockquote">list(array, object)를 iteratee에 넣어서 결과값을 return 한다.</p><p name="9a2b" id="9a2b" class="graf graf--p graf-after--p">이때, <code class="markup--code markup--p-code">memo</code>값이 존재하면 해당 값을 초기 값으로 하며, 만약 <code class="markup--code markup--p-code">memo</code> 값이 존재하지 않을 경우에는 <code class="markup--code markup--p-code">list</code>의 첫번째 요소를 초기 값으로 한다.</p><pre name="12c3" id="12c3" class="graf graf--pre graf-after--p">var result = _.reduce([1, 2, 3], function(memo, item) {<br>   return memo - item;<br>}, 10);<br>console.log(result); // 4 </pre><p name="4f9a" id="4f9a" class="graf graf--p graf-after--pre">memo값 (초기값)이 존재 할 때와 안할 때를 고려 해야 하며, 위에서 설명했던 <code class="markup--code markup--p-code">_.each</code> 함수를 이용하여 구현한다.</p><pre name="e129" id="e129" class="graf graf--pre graf-after--p">_.reduce = function(collection, iterator, accumulator) {<br>    var hasAcc = arguments.length &gt; 2;<br>    _.each( collection, function (item, index){<br>      if (!hasAcc){<br>          accumulator = item;<br>          hasAcc ++;<br>          return;<br>      }<br>      accumulator = iterator(accumulator,item);<br>    });<br>    return accumulator;<br>};</pre><p name="416c" id="416c" class="graf graf--p graf-after--pre">분명 위 코드는 내가 작성한 코드는 아니다. (나는 <code class="markup--code markup--p-code">_.each</code> 함수를 이용하지 않고 for 문을 이용하였다. 당시에는 응용하기가 어려웠다.)</p><p name="a9c0" id="a9c0" class="graf graf--p graf-after--p graf--trailing">위 소스코드를 간단히 설명하면, <code class="markup--code markup--p-code">accumulator</code>가 존재 하지 않으면 초기값을 배열의 첫번째 <code class="markup--code markup--p-code">item</code>으로 설정하고 hasAcc값을 true로 변경한다음 리턴한 후 <code class="markup--code markup--p-code">_.each</code> 문을 돌린다. 그렇게 되면 초기값이 <code class="markup--code markup--p-code">collection</code> 의 첫번째 값으로 설정이 된 후 부터 <code class="markup--code markup--p-code">iterator</code> 함수를 돌려 <code class="markup--code markup--p-code">accumulator</code> 에 넣는다. <code class="markup--code markup--p-code">accumulator</code> 는 계속 축적된 값을 갖고 가게된다.</p></div></div></section><section name="25e8" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="a372" id="a372" class="graf graf--p graf--leading"><code class="markup--code markup--p-code">_.memoize</code> <code class="markup--code markup--p-code">-.shuffle</code> 은 굉장히 어려웠다.</p><p name="0171" id="0171" class="graf graf--p graf-after--p graf--trailing">설명은 나중에..</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/f21c025b17eb"><time class="dt-published" datetime="2017-12-08T04:11:05.003Z">December 8, 2017</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/javascript-underscore-js-f21c025b17eb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

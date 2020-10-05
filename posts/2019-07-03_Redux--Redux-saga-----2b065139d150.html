@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Redux와 Redux-saga의 도입</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Redux와 Redux-saga의 도입</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+현재 나는 거래소 플렛폼에서 React를 사용하여 개발 및 유지 보수를 하고 있다. 기존기술 스택중엔 React / Redux가 포함 되어 있었고, 리덕스 미들웨어로는 Redux-Thunk를 사용하여 비동기 처리를 수행하곤 했다.
+</section>
+<section data-field="body" class="e-content">
+<section name="d0e0" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="90fb" id="90fb" class="graf graf--h3 graf--leading graf--title">Redux와 Redux-saga의 도입</h3><figure name="ac87" id="ac87" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 312px; max-height: 244px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 78.2%;"></div><img class="graf-image" data-image-id="0*xK12mGGrym1RJaNt.png" data-width="312" data-height="244" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*xK12mGGrym1RJaNt.png"></div><figcaption class="imageCaption">from redux-saga homepage</figcaption></figure><p name="7170" id="7170" class="graf graf--p graf-after--figure">현재 나는 거래소 플렛폼에서 React를 사용하여 개발 및 유지 보수를 하고 있다. 기존기술 스택중엔 React / Redux가 포함 되어 있었고, 리덕스 미들웨어로는 Redux-Thunk를 사용하여 비동기 처리를 수행하곤 했다.</p><p name="7357" id="7357" class="graf graf--p graf-after--p graf--trailing">입사 하였을 때에는 Redux 설정이 모두 되어 있었고, Action Type에 대한 정의, 미들웨어 채택 등 이미 되어있었다. 자연스럽게 Redux는 Thunk와 함께 이해를 하게 되었고, 꽤나 익숙해질쯤 새로운 프로젝트를 시작하게 되었다.</p></div></div></section><section name="99f9" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><blockquote name="d28c" id="d28c" class="graf graf--blockquote graf--leading">Redux-Thunk를 사용하면서 불편했던 점</blockquote><ol class="postList"><li name="3352" id="3352" class="graf graf--li graf-after--blockquote">가독성이 너무 안좋다.<br>- Action이 실행되는 함수에서 dispatch를 통해 redux 상태 변화(Request, Success, Failure와 같은)를 함께 표기하다보니, 한 함수마다 보기 불편한 코드가 존재한다.</li><li name="1b81" id="1b81" class="graf graf--li graf-after--li">React Components 안에 Promise가 존재하여 코드가 난잡해보인다.</li><li name="107f" id="107f" class="graf graf--li graf-after--li">이건 내생각인데 진짜 Flux 패턴과 비슷하게 비교해서 봐도 잘 이해가 안됐다.</li></ol><blockquote name="a6b4" id="a6b4" class="graf graf--blockquote graf-after--li">Redux-Saga 선택이유</blockquote><ol class="postList"><li name="f30e" id="f30e" class="graf graf--li graf-after--blockquote">코드의 깔끔함<br>- Generator의 미숙에도 saga를 고른 이유는 thunk를 쓸때 promise 를 사용하다가 async / await를 사용할때 코드가 정말 깔끔해진다라는 느낌이 들었는데, Saga가 딱 그런느낌이 었다.</li><li name="b4dd" id="b4dd" class="graf graf--li graf-after--li">이건 스터디하다 알게 된건데, saga는 action에 반응을 한다. take와 같은 effect를 이용하여 action을 가지고 반응할 수 있다.</li><li name="66b4" id="66b4" class="graf graf--li graf-after--li">하나의 함수에서 여러개의 동작을 체인 형태로 실행 시키더라도 코드 자체가 굉장히 간결하다.</li><li name="d3a1" id="d3a1" class="graf graf--li graf-after--li graf--trailing">진짜이유는.. 써보고싶어서..</li></ol></div></div></section><section name="dd9a" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5121" id="5121" class="graf graf--h3 graf--leading">디렉토리 구조</h3><p name="4067" id="4067" class="graf graf--p graf-after--h3">Redux-thunk를 사용하다가 saga를 사용하는데 있어 가장 오래 검색해본것 중에 하나가 디렉토리 구조를 잘 정의하고 사용하고 싶었으나, 뭔가 best practice 와 같은것은 찾지 못하였다.</p><p name="5cd0" id="5cd0" class="graf graf--p graf-after--p">생각보다 잘 정리된 디렉토리 구조는 없고, 사람마다 자기회사에 적합한 디렉토리 구조를 가져간다고 생각해서 나도 그냥 나 편한대로 구성해보았다.</p><figure name="40b0" id="40b0" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 366px; max-height: 486px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 132.8%;"></div><img class="graf-image" data-image-id="1*0jwT1YvCX6UeVa9AtnFZ6w.png" data-width="366" data-height="486" src="https://cdn-images-1.medium.com/max/800/1*0jwT1YvCX6UeVa9AtnFZ6w.png"></div><figcaption class="imageCaption">Redux-saga directory structure</figcaption></figure><ol class="postList"><li name="8cb9" id="8cb9" class="graf graf--li graf-after--figure">store 디렉토리는 src 디텍토리의 하위 디렉토리이다. (src/store)<br>- (난 참고로 서브모듈에 데이터를 저장하여 사용중이다.)</li><li name="0a8e" id="0a8e" class="graf graf--li graf-after--li">reducers directory<br>- index.js 파일을 통해 각 reducer들을 export 한다. (나중에 store index.js파일에서 combineReducer를 수행한다.)<br>- 각 reducer(sample.js..) 파일에는 action, actionType, reducer를 함께 담는다. (이렇게 모두 담아서 사용하는 패턴을 duck 패턴이라고 하는데, 그래서 디렉토리명을 modules로 결정했다.)</li><li name="d6be" id="d6be" class="graf graf--li graf-after--li">sagas directory<br>- index.js는 rootSagas를 담고 있고 rootSagas는 yield all([…])을 통해 각 watcher들을 담고 있다.<br>- sampleSaga와 같이 각종 saga 파일들은 비지니스 로직을 설계한다.</li><li name="ecba" id="ecba" class="graf graf--li graf-after--li graf--trailing">마지막으로 가장 상위 index.js는 reducer를 통합하고, devTools를 합쳐서 store를 생성하여 export 한다.</li></ol></div></div></section><section name="b38e" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="67b2" id="67b2" class="graf graf--h3 graf--leading"><strong class="markup--strong markup--h3-strong">코드 로직 샘플</strong></h3><figure name="0fec" id="0fec" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 499px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 71.3%;"></div><img class="graf-image" data-image-id="1*dwd2LwzdMy--KGxZaAky4g.png" data-width="1326" data-height="946" src="https://cdn-images-1.medium.com/max/800/1*dwd2LwzdMy--KGxZaAky4g.png"></div></figure><p name="042f" id="042f" class="graf graf--p graf-after--figure">기존 Redux구조를 조금더 알기쉽게 표현해 봤다.</p><ol class="postList"><li name="68ef" id="68ef" class="graf graf--li graf-after--p">View에서 Client 혹은 어떠한 행위에 의해서 Action이 실행된다.</li><li name="28dd" id="28dd" class="graf graf--li graf-after--li">Action은 Middleware(Saga)에서 ActionType을 기준으로 catch 한다.</li><li name="e2b9" id="e2b9" class="graf graf--li graf-after--li">비동기 동작 혹은 단순 변환 작업이 이뤄지고 Dispatch 된다. (saga에서는 put으로 동작한다.)</li><li name="76eb" id="76eb" class="graf graf--li graf-after--li">dispatch를 통해 Reducer에서 action type을 기준으로 순수함수로 리턴한다.</li><li name="229a" id="229a" class="graf graf--li graf-after--li">state에 반영이 되고, View에 반영이 된다.</li></ol><blockquote name="1f6d" id="1f6d" class="graf graf--blockquote graf-after--li">실제 코드</blockquote><p name="62d1" id="62d1" class="graf graf--p graf-after--blockquote"><strong class="markup--strong markup--p-strong">home.jsx</strong></p><figure name="ea3d" id="ea3d" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/lyhlg/a8bc6509966abd10cd77de8e198a4df0.js"></script></figure><p name="171c" id="171c" class="graf graf--p graf-after--figure">styled-component를 사용해서 못알아볼수 있지만.. 다른건 별로 없기에 패스하고, 가장 크게 다른점은 가장 아래에 onRequestSample 이라는 dispatch 함수를 봐야한다.</p><p name="7917" id="7917" class="graf graf--p graf-after--p">action type으로 action을 시도하고 있다.</p><p name="fde6" id="fde6" class="graf graf--p graf-after--p">코드로직 샘플에 대한 동작방식은 아래와 같다.</p><ol class="postList"><li name="b013" id="b013" class="graf graf--li graf-after--p">액션을 type으로 시도하게되면 (물론 type과 같이 추가적인 key를 전달하여 액션 함수를 핸들링할수 있다.)</li><li name="8d62" id="8d62" class="graf graf--li graf-after--li">dispatch를 통해 action이 전달될때 reducer로 가기전 saga가 interceptor를 한다.</li><li name="2e70" id="2e70" class="graf graf--li graf-after--li">해당되는 saga logic을 태우고, (비동기 통신등.) 작업이 완료되면 reducer에서 상태값 변경을 한다.</li><li name="bcb6" id="bcb6" class="graf graf--li graf-after--li">이후 store에 반영이 된다.</li><li name="c74e" id="c74e" class="graf graf--li graf-after--li">view에도 반영이 된다.</li></ol><p name="2a4f" id="2a4f" class="graf graf--p graf-after--li graf--trailing">더 잘 기록하고 싶었는데, 시간상 생각나는것들만 나열해서 적어보았다.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/2b065139d150"><time class="dt-published" datetime="2019-07-03T02:50:47.250Z">July 3, 2019</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/redux%EC%99%80-redux-saga%EC%9D%98-%EB%8F%84%EC%9E%85-2b065139d150" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

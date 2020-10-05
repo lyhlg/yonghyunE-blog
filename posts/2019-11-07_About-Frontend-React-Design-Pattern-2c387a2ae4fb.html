@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>About Frontend React Design Pattern</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">About Frontend React Design Pattern</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+현재까지 React Project를 3개 가량 진행해왔고, 그중에 최근프로젝트는 zero configuration에서 시작하여 모든 설정 파일을 작성해왔습니다.
+</section>
+<section data-field="body" class="e-content">
+<section name="5534" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2504" id="2504" class="graf graf--h3 graf--leading graf--title">About Frontend React Design Pattern</h3><p name="3757" id="3757" class="graf graf--p graf-after--h3">현재까지 React Project를 3개 가량 진행해왔고, 그중에 최근프로젝트는 zero configuration에서 시작하여 모든 설정 파일을 작성해왔습니다.</p><p name="92f1" id="92f1" class="graf graf--p graf-after--p">Webpack설정, Lint 설정, React-Redux-ReduxSaga 패턴 등 여러 설정을 진행 하였습니다.</p><p name="d4ae" id="d4ae" class="graf graf--p graf-after--p">그중에서도 이번에는 Frontend의 기본적인 디자인 패턴인 Container Presentational패턴에 대해서 적용한 방법과 예시를 들어보려고 합니다.</p><p name="e044" id="e044" class="graf graf--p graf-after--p">저는 Redux를 사용하였고, 결론 부터 말씀드리면 아래와 같이 데이터 플로우를 구성하였습니다.</p><blockquote name="c17f" id="c17f" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">Container Component 이하 CC / Presentational Component 이하 FC</strong></blockquote><ol class="postList"><li name="86bc" id="86bc" class="graf graf--li graf-after--blockquote">모든 Data는 Redux Store에 저장한다.</li><li name="f083" id="f083" class="graf graf--li graf-after--li">CC에 해당 하는 Main Component들은 가장 상단에서 FC를 랜더링 한다.</li><li name="ca56" id="ca56" class="graf graf--li graf-after--li">FC는 각자 View에 필요한 상태를 제어 하기위한 State를 가질 수 있다.</li><li name="6e20" id="6e20" class="graf graf--li graf-after--li">가능한 FC는 Funtional Component로 작성을 한다.</li></ol><p name="5b33" id="5b33" class="graf graf--p graf-after--li graf--trailing">(+ 나중에 개발을 완료하고 알게된 사실인데 hook을 조금 더 효율적으로 써볼걸 그랬다. ㅠㅠ)</p></div></div></section><section name="eb00" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e689" id="e689" class="graf graf--h3 graf--leading">Container / Presentational</h3><ul class="postList"><li name="024b" id="024b" class="graf graf--li graf-after--h3">Frontend의 기본적인 디자인 패턴으로 설명한 내용은 기존에 포스팅에 있어서 링크로 대체합니다.</li></ul><div name="d385" id="d385" class="graf graf--mixtapeEmbed graf-after--li"><a href="https://medium.com/@lyhlg0201/react-container-presentational-1bbc701b7fd4" data-href="https://medium.com/@lyhlg0201/react-container-presentational-1bbc701b7fd4" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/@lyhlg0201/react-container-presentational-1bbc701b7fd4"><strong class="markup--strong markup--mixtapeEmbed-strong">[React] Container, Presentational</strong><br><em class="markup--em markup--mixtapeEmbed-em">Frontend 개발자로 취업하고 업무를 시작한지 일주일이 지났다.</em>medium.com</a><a href="https://medium.com/@lyhlg0201/react-container-presentational-1bbc701b7fd4" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="97465238219e9b566904dfba013a0b30"></a></div><h3 name="3894" id="3894" class="graf graf--h3 graf-after--mixtapeEmbed">디자인 패턴 구조 상세</h3><h4 name="54be" id="54be" class="graf graf--h4 graf-after--h3">Container Component</h4><ol class="postList"><li name="e089" id="e089" class="graf graf--li graf-after--h4">Redux action dispatch를 담당한다.</li><li name="d549" id="d549" class="graf graf--li graf-after--li">dispatch에는 Ajax call이 될수 있고, store update가 될 수 있다.</li><li name="591c" id="591c" class="graf graf--li graf-after--li">Redux에 선언된 Action들을 import받고 dispatch 함수를 반환 하여 CC의 props로 내려준다.</li></ol><h4 name="2f28" id="2f28" class="graf graf--h4 graf-after--li"><strong class="markup--strong markup--h4-strong">Presentational Component</strong></h4><ol class="postList"><li name="2121" id="2121" class="graf graf--li graf-after--h4">Redux와 Connect 하지는 않고 모두 CC로 부터 props를 받아 처리한다.</li><li name="c4fd" id="c4fd" class="graf graf--li graf-after--li">FC도 처리해야하는 View state가 많거나, 자체적으로 React-Router (Sub Header)가 필요한 경우 규모가 커지는 경우가 있다.</li><li name="5906" id="5906" class="graf graf--li graf-after--li">정확하게 FC는 View 용도로만 사용을 한다.</li></ol><h3 name="7e9d" id="7e9d" class="graf graf--h3 graf-after--li">파일 구조 상세</h3><p name="2fcb" id="2fcb" class="graf graf--p graf-after--h3">Bussiness 로직에 따른 파일 구조를 채택하였다.</p><p name="dfb7" id="dfb7" class="graf graf--p graf-after--p">먼저 고려사항은 아래와 같다.</p><ol class="postList"><li name="fb11" id="fb11" class="graf graf--li graf-after--p">CC에 해당하는 컴포넌트들은 <code class="markup--code markup--li-code">src/pages/</code> 안에 담에서 관리합니다.</li></ol><figure name="35fb" id="35fb" class="graf graf--figure graf-after--li"><div class="aspectRatioPlaceholder is-locked" style="max-width: 358px; max-height: 538px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 150.29999999999998%;"></div><img class="graf-image" data-image-id="1*f2m-rPhn0Jfegy5VaA34Sw.png" data-width="358" data-height="538" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*f2m-rPhn0Jfegy5VaA34Sw.png"></div><figcaption class="imageCaption">file 구조</figcaption></figure><p name="5dfd" id="5dfd" class="graf graf--p graf-after--figure">2. App.tsx 파일은 react-router를 구성하고 있고 <code class="markup--code markup--p-code">src/pages</code> 안에는 Route되었을때 최상단 Container들이 위치하고 있습니다.</p><p name="e16c" id="e16c" class="graf graf--p graf-after--p">3. 그리고 같은 레벨에 포함되는 <code class="markup--code markup--p-code">src/components</code>에서는 Container를 구성하고 있는 FC들로 구성되어 있으며, <code class="markup--code markup--p-code">src/components/hom/e</code> 과 같이 Container와 동일한 파일이름으로 디렉토리를 구성합니다. (이유는 규모가 커지다보면 FC도 굉장히 커져서 여러개의 View Component로 구분해야되는 경우가 생기더라구요.)</p><h3 name="2f65" id="2f65" class="graf graf--h3 graf-after--p">하면서 느낀점</h3><ol class="postList"><li name="8510" id="8510" class="graf graf--li graf-after--h3">확실히 어디서 어떤작업을 해야 명확한지 알 수 있다. (로직을 다루는 곳 Viewing을 하는곳..)</li><li name="c3bb" id="c3bb" class="graf graf--li graf-after--li">Redux store에 너무 많은 데이터가 축적 될 수도있다.</li><li name="64f2" id="64f2" class="graf graf--li graf-after--li">프로젝트를 할 때에는 prop-types를 사용하였는데, 너무많은 데이터가 축적되면 prop-types를 선언하는 작업이 너무 시간 소모적이다.</li><li name="18c6" id="18c6" class="graf graf--li graf-after--li graf--trailing">정말 react life cycle이 정교하게 필요한 경우가 아니면 React-hook, Redux-hook을 이용하여 가독성 좋은(?) 코드를 작성해보고싶다.</li></ol></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/2c387a2ae4fb"><time class="dt-published" datetime="2019-11-07T07:30:57.545Z">November 7, 2019</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/about-frontend-react-design-pattern-2c387a2ae4fb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

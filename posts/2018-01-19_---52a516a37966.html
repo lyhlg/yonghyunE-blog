@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>상속</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">상속</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+ES5 이하 방식이 아닌 상속
+</section>
+<section data-field="body" class="e-content">
+<section name="0318" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="380b" id="380b" class="graf graf--h3 graf--leading graf--title">상속</h3><h4 name="a3a9" id="a3a9" class="graf graf--h4 graf-after--h3 graf--subtitle">ES5 이하 방식이 아닌 상속</h4><pre name="dd02" id="dd02" class="graf graf--pre graf-after--h4">var A = function (){<br>  this.a = 1;<br>  this.b = &#39;b&#39;;<br>}<br>A.prototype.count = function () {<br>  this.a ++;<br>}</pre><pre name="86ba" id="86ba" class="graf graf--pre graf-after--pre">var B = function () {<br><strong class="markup--strong markup--pre-strong">  A.call(this);</strong><br>  this.b = &#39;c&#39;;<br>  this.c = 2;<br>}<br><strong class="markup--strong markup--pre-strong">B.prototype = Object.create(A.prototype); </strong>// A함수의 Protytype과 연결<strong class="markup--strong markup--pre-strong"><br>B.prototype.constructor = B;   </strong>// A에 chaining 되어 있는 constructor를 자기 자신으로 설정</pre><pre name="bdc6" id="bdc6" class="graf graf--pre graf-after--pre">var b = new B();<br>b.count(); b.count(); b.count();<br>console.log(b.a); // 4<br>console.log(b.b); // c<br>console.log(b.c); // 2</pre><h4 name="03f8" id="03f8" class="graf graf--h4 graf-after--pre">ES6 방식의 상속</h4><pre name="cf48" id="cf48" class="graf graf--pre graf-after--h4"><strong class="markup--strong markup--pre-strong">class A {<br>  constructor() {</strong><br>    this.a = 1;<br>    this.b =&quot;b&quot;;<br> <strong class="markup--strong markup--pre-strong"> }</strong><br>  count() {<br>    this.a++;<br>  }<br>}</pre><pre name="d022" id="d022" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">class B extends A{<br>  constructor(){</strong><br>    <strong class="markup--strong markup--pre-strong">super();</strong><br>    this.b = &quot;c&quot;;<br>    this.c = 2;<br><strong class="markup--strong markup--pre-strong">  }<br>}</strong></pre><pre name="51ca" id="51ca" class="graf graf--pre graf-after--pre graf--trailing">var b = new B();<br>console.log(b.a);  // 1<br>b.count();<br>console.log(b.a);  // 2<br>console.log(b.b);  // c<br>console.log(b.c);  // 2</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/52a516a37966"><time class="dt-published" datetime="2018-01-19T08:18:23.568Z">January 19, 2018</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/%EC%83%81%EC%86%8D-52a516a37966" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

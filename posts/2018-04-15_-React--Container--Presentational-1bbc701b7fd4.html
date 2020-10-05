@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>[React] Container, Presentational</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">[React] Container, Presentational</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Frontend 개발자로 취업하고 업무를 시작한지 일주일이 지났다.
+</section>
+<section data-field="body" class="e-content">
+<section name="4ba5" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1c7d" id="1c7d" class="graf graf--h3 graf--leading graf--title">[React] Container, Presentational</h3><p name="1d40" id="1d40" class="graf graf--p graf-after--h3">Frontend 개발자로 취업하고 업무를 시작한지 일주일이 지났다.</p><p name="9cee" id="9cee" class="graf graf--p graf-after--p">급급히 발생되는 업무를 쳐내야 하는 실무 업무는 업무대로 처리하고</p><p name="8d36" id="8d36" class="graf graf--p graf-after--p">급히 쳐내는 만큼 기초가 탄탄하지 않으면 나중에 남는게 없다고 생각이 든다.</p><p name="7413" id="7413" class="graf graf--p graf-after--p">그래서 틈틈히 React에 대한 기본 지식과 방법론 같은 것들을 공부하려고 한다.</p><p name="ed03" id="ed03" class="graf graf--p graf-after--p graf--trailing">이번 포스팅은 리액트 component 작성시 방법론이다.</p></div></div></section><section name="34d0" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="f31d" id="f31d" class="graf graf--p graf--leading">React Component를 구분하는 데에는 아래와 같은 표현 방식이 있다.</p><p name="978b" id="978b" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Container vs. Presentational</strong></p><p name="a311" id="a311" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Stateful vs. Stateless</strong></p><p name="e2f8" id="e2f8" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Smart vs. Dumb</strong></p><p name="332a" id="332a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Pure vs. Unpure</strong></p><p name="74a3" id="74a3" class="graf graf--p graf-after--p">이런 방식들이 왜 나왔나 생각해 보면 모든 언어에서 그렇겠지만 React 특성상 Component Reusable을 하지 못한다면 굉장히 비효율 적일 것이다.</p><p name="22aa" id="22aa" class="graf graf--p graf-after--p">하나의 Component에서 Data Fetch 및 Data Render를 같이표현하게된다면?</p><p name="a027" id="a027" class="graf graf--p graf-after--p">하나일때는 동일하게 표현 될 수 있지만 Render 하는 부분이 중복이 될경우 Component 마다 Render부분을 구현해야 될 것이고 코드의 중복이 발생될 것이다.</p><p name="e33f" id="e33f" class="graf graf--p graf-after--p">이러한 문제 때문에 우리는</p><ol class="postList"><li name="b578" id="b578" class="graf graf--li graf-after--p">주로 데이터를 가져오고 상태를 관리하는 Container와 같은 존재</li><li name="f758" id="f758" class="graf graf--li graf-after--li graf--trailing">데이터를 Props로 받아 화면에 보여주고 뿌려주는 Presentational 같은 존재로 구분할 필요 가 있다.</li></ol></div></div></section><section name="1dbf" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="c743" id="c743" class="graf graf--p graf--leading">위에서 말한 React Component를 구분 방식은 사실 어떻게 누가 표현하냐에 따라 다른것 같다.</p><p name="9060" id="9060" class="graf graf--p graf-after--p">그리고 구분도 명확하게 딱딱 맞출순 없다. (개발환경에 따라 얼마든 바뀔수는 있으니)</p><p name="c7d8" id="c7d8" class="graf graf--p graf-after--p">하지만 주된 임무는 명확한것 같다.</p><h4 name="cd70" id="cd70" class="graf graf--h4 graf-after--p">Container : <em class="markup--em markup--h4-em">how things work</em>.</h4><ol class="postList"><li name="0810" id="0810" class="graf graf--li graf-after--h4">Data를 fetching 하는것이 주 목적</li><li name="da13" id="da13" class="graf graf--li graf-after--li">연관된 서브 component 를 render 한다.</li><li name="ea7d" id="ea7d" class="graf graf--li graf-after--li">일부 wrapping을 제외하고는 DOM markup 이나 style(css)이 없다.</li><li name="039e" id="039e" class="graf graf--li graf-after--li">데이터의 소스 역할을 하기 때문에 거의 stateful 하다.</li></ol><h4 name="f8a6" id="f8a6" class="graf graf--h4 graf-after--li"><strong class="markup--strong markup--h4-strong">Presentational : how things look.</strong></h4><ol class="postList"><li name="08a2" id="08a2" class="graf graf--li graf-after--h4">자체 DOM markup 뿐만 아니라 style(css)도 가지고 있다.</li><li name="4bc4" id="4bc4" class="graf graf--li graf-after--li">props를 통해 data 및 callback을 수신한다.</li><li name="ced5" id="ced5" class="graf graf--li graf-after--li">State를 가지지는 않으나, 상황에 따라 갖게 된다면 data의 변경이 아닌 UI State 용도로 사용한다.</li><li name="b205" id="b205" class="graf graf--li graf-after--li graf--trailing">State, lifecycle, Performance optimization이 필요한 경우가 아니면 Function component로 작성한다.</li></ol></div></div></section><section name="b15c" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="9bbd" id="9bbd" class="graf graf--p graf--leading">예전엔 stateful / stateless로 구분을 하면서 약간 덜 깊게 공부했다라 할까.. 난 지금 해당 Presentational Component를 stateful로 표현을 해야 하는데 약속대로 라면 stateless로 표현하는게 맞고.. 이걸 어떻게 해야할까 고민을 했던적이 있었다.</p><p name="a77f" id="a77f" class="graf graf--p graf-after--p">사실상 이러한 구분은 데이터를 가져오는 부분과 보여주는 부분으로 나눴을 뿐 정확하게 Component를 함수형으로 써야한다 state형으로 써야한다라는 구분은 없었다.</p><div name="9b83" id="9b83" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0" data-href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0"><strong class="markup--strong markup--mixtapeEmbed-strong">Presentational and Container Components</strong><br><em class="markup--em markup--mixtapeEmbed-em">You’ll find your components much easier to reuse and reason about if you divide them into two categories.</em>medium.com</a><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b982faa31727f186825e079abfaf0277" data-thumbnail-img-id="1*TatfeANQMBmjrk_nhKbZoA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*TatfeANQMBmjrk_nhKbZoA.jpeg);"></a></div><p name="7fed" id="7fed" class="graf graf--p graf-after--mixtapeEmbed graf--trailing">위 글을 읽고 위 부분을 내 입맛대로? 정리해보았고, 많은 도움이 되었다.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/1bbc701b7fd4"><time class="dt-published" datetime="2018-04-15T06:24:13.486Z">April 15, 2018</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/react-container-presentational-1bbc701b7fd4" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>StringifyJSON 구현</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">StringifyJSON 구현</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+stringifyJSON 함수란?
+</section>
+<section data-field="body" class="e-content">
+<section name="82f8" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="5f68" id="5f68" class="graf graf--p graf--leading">StringifyJSON 구현</p><h3 name="8c1d" id="8c1d" class="graf graf--h3 graf-after--p">stringifyJSON 함수란?</h3><p name="714b" id="714b" class="graf graf--p graf-after--h3">자바스크립트 값을 JSON 문자열로 변환한다.</p><p name="3e4e" id="3e4e" class="graf graf--p graf-after--p">더 자세히 말하면 <strong class="markup--strong markup--p-strong">Object 나 Array를 받았을 경우</strong> 모두 string으로 변환해주는 함수이다.</p><p name="020f" id="020f" class="graf graf--p graf-after--p">문법을 보면 아래와 같다.</p><blockquote name="9e02" id="9e02" class="graf graf--blockquote graf-after--p">JSON.stringify(value [, replacer [, space]])</blockquote><p name="22c4" id="22c4" class="graf graf--p graf-after--blockquote">위처럼 세 개의 인자를 받게 되는데 자세한 내용은 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" data-href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">mdn문서</a>를 참고 하자.</p><p name="a183" id="a183" class="graf graf--p graf-after--p">내가 여기서 <strong class="markup--strong markup--p-strong">구현한 내용은 value값을 받았을 때에 처리 방식만 고려</strong>하였고 나머지 인자는 모두 optional 하게 동작하므로 여기서 구현하지는 않았다.</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="b336" id="b336" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 840px; max-height: 602px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 71.7%;"></div><img class="graf-image" data-image-id="1*G_c7D-kKDApZyqM7_TkwAA.png" data-width="840" data-height="602" src="https://cdn-images-1.medium.com/max/1200/1*G_c7D-kKDApZyqM7_TkwAA.png"></div><figcaption class="imageCaption">각 타입별 출력 기대값</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="d956" id="d956" class="graf graf--h3 graf-after--figure">Input Data type</h3><p name="e1f5" id="e1f5" class="graf graf--p graf-after--h3"><strong class="markup--strong markup--p-strong">Object</strong> 일 때와 <strong class="markup--strong markup--p-strong">Array</strong>일 때 그리고 미약하지만 <strong class="markup--strong markup--p-strong">Function</strong> 일 때는 약간의 주의사항이 존재한다.</p><p name="d260" id="d260" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Function 고려사항</strong></p><ul class="postList"><li name="4aaf" id="4aaf" class="graf graf--li graf-after--p">Function을 만나게 되면 무조건 결과는 이전 결과를 무시하고 ‘{}’ 빈 Object가 출력된다.</li></ul><p name="98d8" id="98d8" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Object 고려사항</strong></p><ul class="postList"><li name="dabf" id="dabf" class="graf graf--li graf-after--p">Object 의 property가 method일 경우 (value가 function을 갖는 형태) -&gt; 기존의 값이 무엇이 있든 ‘{}’이 출력된다.</li><li name="2184" id="2184" class="graf graf--li graf-after--li">Object 의 value가 Object일 경우 또는 배열일 경우</li></ul><p name="6d3b" id="6d3b" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">Array 고려사항</strong></p><ul class="postList"><li name="a50d" id="a50d" class="graf graf--li graf-after--p">Array가 이중 배열 또는 그 이상일 경우 ( [0,1,[0,1,[0,1]]] )</li></ul><blockquote name="db05" id="db05" class="graf graf--blockquote graf-after--li graf--trailing"><strong class="markup--strong markup--blockquote-strong">Object와 Array에서 발생하는 문제 때문에 자기 자신을 계속 호출해가며 낱개가 나올 때까지 재귀를 돌릴 필요가 있다.</strong></blockquote></div></div></section><section name="fc84" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><blockquote name="60ae" id="60ae" class="graf graf--pullquote graf--leading">전체적인 틀은 크게 아래 세 가지로 나눈다.</blockquote><h4 name="7edd" id="7edd" class="graf graf--h4 graf-after--pullquote">Object나 Array가 아닌 경우</h4><ul class="postList"><li name="b5f0" id="b5f0" class="graf graf--li graf-after--h4">null / undefined / boolean / number 인 경우</li><li name="0824" id="0824" class="graf graf--li graf-after--li">string(얘만 앞뒤로 <strong class="markup--strong markup--li-strong">“ “</strong> 가 필요하므로 따로 분류)인 경우</li></ul><h4 name="2329" id="2329" class="graf graf--h4 graf-after--li">Array인 경우</h4><ul class="postList"><li name="e490" id="e490" class="graf graf--li graf-after--h4">각 인덱스마다 for문을 돌려 자기 함수를 호출하며 인덱스의 값을 1번 항목에 매칭 시키는 게 목적</li><li name="1784" id="1784" class="graf graf--li graf-after--li">만약 해당하는 인덱스의 값이 배열이거나 객체일 경우에는 2번 3번에 매칭 되며 재귀 재 호출</li></ul><h4 name="f568" id="f568" class="graf graf--h4 graf-after--li">Object인 경우</h4><ul class="postList"><li name="b91d" id="b91d" class="graf graf--li graf-after--h4">각 key값마다 for문을 돌려 자기 함수를 호출하며 인덱스의 값을 1번 항목에 매칭 시키는 게 목적</li><li name="5f22" id="5f22" class="graf graf--li graf-after--li">만약 해당하는 인덱스의 값이 배열이거나 객체일 경우에는 2번 3번에 매칭 되며 재귀 재 호출</li><li name="b455" id="b455" class="graf graf--li graf-after--li graf--trailing">만약 value 값으로 function을 받을 경우에는 “ {} “ return</li></ul></div></div></section><section name="169a" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="a82a" id="a82a" class="graf graf--p graf--leading">나는 아래와 같이 소스코드를 작성 하였다.</p><p name="b5ea" id="b5ea" class="graf graf--p graf-after--p">(물론 좋은 소스코드가 아닐 수도 있지만 기록 차원에서 남겨둔다.)</p><pre name="3722" id="3722" class="graf graf--pre graf-after--p">var stringifyJSON = function(obj) {<br>  let result = &quot;&quot;;<br>  if( obj == null || obj == undefined || typeof obj == &#39;boolean&#39; || typeof obj == &#39;number&#39; ){<br>    return  &quot;&quot; + obj;<br>  }<br>  // string<br>  else if ( typeof obj === &#39;string&#39; ){<br>    return  &quot;\&quot;&quot; + obj + &quot;\&quot;&quot; ;<br>  }<br>  // Array<br>  else if( Array.isArray(obj) ){<br>    if(obj[0] === undefined){<br>      return &quot;[]&quot;;<br>    }<br>    else{<br>      for ( let i = 0 ; i &lt; obj.length ; i ++ ){<br>        if ( i !== obj.length-1) {<br>          result += stringifyJSON(obj[i]) + &#39;,&#39;;<br>        }<br>        else{<br>          result += stringifyJSON(obj[i]);<br>        }<br>      }<br>      result =  &quot;[&quot; + result + &quot;]&quot;;<br>    }<br>  }<br>  // object<br>  else if ( obj.constructor === Object ){<br>    for ( var i in obj ){<br>      if (i === Object.keys(obj)[Object.keys(obj).length-1] ){<br>        result += stringifyJSON(i) + &quot;:&quot;;<br>        result += stringifyJSON(obj[i]);<br>      }<br>      else {<br>        if ( obj[i].constructor === Function ){<br>          return &quot;{}&quot;;<br>        }<br>        result += stringifyJSON(i) + &quot;:&quot;;<br>        result += stringifyJSON(obj[i]) + &quot;,&quot;;<br>      }<br>    }<br>    result = &quot;{&quot; + result + &quot;}&quot;;<br>  }<br>return result;<br>};</pre><pre name="393d" id="393d" class="graf graf--pre graf-after--pre graf--trailing">var obj = {a:&#39;b&#39;, b:function(){}, c : [1,2,3,[1,&#39;a&#39;]]};<br>console.log(stringifyJSON(obj));</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/ec3527a6cc5b"><time class="dt-published" datetime="2017-12-14T06:50:09.841Z">December 14, 2017</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/stringifyjson-%EA%B5%AC%ED%98%84-ec3527a6cc5b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>

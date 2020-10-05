@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>MobX 에 대한 이해</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">MobX 에 대한 이해</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+회사를 이직하면서 새로운 기술에 대한 도입을 검토중이다.
+</section>
+<section data-field="body" class="e-content">
+<section name="21c6" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fbe1" id="fbe1" class="graf graf--h3 graf--leading graf--title">MobX 에 대한 이해</h3><p name="caea" id="caea" class="graf graf--p graf-after--h3">회사를 이직하면서 새로운 기술에 대한 도입을 검토중이다.</p><p name="99f0" id="99f0" class="graf graf--p graf-after--p">그중에 기존엔 Redux를 사용하며 middleware로 Thunk / Saga를 써봤는데 이번엔 MobX 를 사용해서 상태 관리를 해보려고 한다.</p><p name="ff5f" id="ff5f" class="graf graf--p graf-after--p graf--trailing">기본 튜토리얼은 진행해보고 MobX에 대한 이해를 돕고자 기록한다.</p></div></div></section><section name="4609" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9b14" id="9b14" class="graf graf--h3 graf--leading">Concepts</h3><ul class="postList"><li name="9f00" id="9f00" class="graf graf--li graf-after--h3">Mobx는 State, Derivations(파생), Actions을 Application에서 구분하는 컨셉을 가지고 있다.</li><li name="ecd1" id="ecd1" class="graf graf--li graf-after--li">Spreadsheet에 비유된다.</li><li name="8ae2" id="8ae2" class="graf graf--li graf-after--li">계산식 (formulas)은 값을 계산하는(<em class="markup--em markup--li-em">computed</em>) 파생이다. 그러나 계산으로만 끝나는게 아니라 사용자가 화면에서 계산된 값을 볼수 있으려면 GUI의 일부를 칠하는 행위가 필요한데, 이때 반응(<em class="markup--em markup--li-em">Reaction</em>)이 처리를 해준다.</li><li name="6c81" id="6c81" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">즉.. mobx는 computed를 통해 계산 된 값을 state에 반영하고, 반영된 값을 Drivations의 반응이 변화된 상태를 감지하여 업데이트된 값을 내려준다.</strong></li></ul><ol class="postList"><li name="8587" id="8587" class="graf graf--li graf-after--li">State는 Application을 동작하게 하는 데이터이다.</li><li name="6752" id="6752" class="graf graf--li graf-after--li">도메인별 state를 가지게 된다.</li></ol><h3 name="7e89" id="7e89" class="graf graf--h3 graf-after--li">2. Derivations</h3><ol class="postList"><li name="eff1" id="eff1" class="graf graf--li graf-after--h3">State로 부터 파생될수 있는 모든 것을 말한다. (직접적인 상호작용이 일어나지 않는다.)</li><li name="27ff" id="27ff" class="graf graf--li graf-after--li">User Interface</li><li name="6d38" id="6d38" class="graf graf--li graf-after--li">Todo list와 같은 list의 length (즉, 남은 todo 개수) 와 같이 파생된 데이터</li><li name="f420" id="f420" class="graf graf--li graf-after--li">서버에 데이터를 요청 함에 따라 변화되는 상태값 (ex&gt; isRequested)</li><li name="ee7d" id="ee7d" class="graf graf--li graf-after--li">Mobx는 두가지의 파생들을 구분한다.</li><li name="4154" id="4154" class="graf graf--li graf-after--li">계산 된 값(<strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">Computed Value</em></strong>). 순수 함수를 사용하여, 항상 현재 observable에서 파생 될 수 있는 값이 있다.</li><li name="ff12" id="ff12" class="graf graf--li graf-after--li">반응(<strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">Reaction</em></strong>). 반응은 상태가 변경됐을 때, 자동으로 변경이 필요한 side effect 이다. (rerendering시 필요)</li><li name="d272" id="d272" class="graf graf--li graf-after--li">현재 state value(상태값)을 기준으로 값을 생성(계산) 하려면 <em class="markup--em markup--li-em">compute</em> 명령어를 사용해야한다.</li></ol><h3 name="07f9" id="07f9" class="graf graf--h3 graf-after--li">Actions</h3><ol class="postList"><li name="a832" id="a832" class="graf graf--li graf-after--h3">Action은 state를 변화시키는 코드의 일부이다. (User event, backend data pushes, scheduled events, etc.)</li></ol><figure name="6ff7" id="6ff7" class="graf graf--figure graf-after--li"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 126px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 17.9%;"></div><img class="graf-image" data-image-id="1*Ya9ekFEO2K7TtuRl5VFWdg.png" data-width="970" data-height="174" src="https://cdn-images-1.medium.com/max/800/1*Ya9ekFEO2K7TtuRl5VFWdg.png"></div></figure><ol class="postList"><li name="bd37" id="bd37" class="graf graf--li graf-after--figure">Action은 스프레드 시트 안에 새로운 값을 입력하는 유저와 같다.</li><li name="5927" id="5927" class="graf graf--li graf-after--li graf--trailing">Action을 정확하게 정의하게 정의한다는 것은 코드를 보다 명확하게 구성하는데 도움이 된다.</li></ol></div></div></section><section name="ee87" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b56a" id="b56a" class="graf graf--h3 graf--leading">Principles *</h3><ul class="postList"><li name="58a7" id="58a7" class="graf graf--li graf-after--h3">Mobx는 Flux 패턴을 가진다. (Action이 state를 변경하는 단방향 데이터 흐름을 지원하며, 영향을 받는 모든 View component를 업데이트 한다.)</li><li name="9cdf" id="9cdf" class="graf graf--li graf-after--li">모든 Derivations는 state가 변화가 되면, 자동적이며 원자적(atomically)으로 업데이트가 된다.</li><li name="b11c" id="b11c" class="graf graf--li graf-after--li">결론적으로는 중간 값을 관찰(observe) 하는 것은 불가능하다.</li><li name="a489" id="a489" class="graf graf--li graf-after--li">모든 Derivation은 기본적으로 동기적으로 업데이트가 된다. (ex&gt; actions은 state가 변경된 직후의 computed value를 안전하게 검사할수 있다.)</li><li name="4dea" id="4dea" class="graf graf--li graf-after--li">Computed value는 느리게(lazily) 업데이트가 된다.</li><li name="a7d0" id="a7d0" class="graf graf--li graf-after--li">적극적으로 사용되지 않는 어떤 computed value은 side effect에서 필요로 할때 까지 업데이트 되지 않을 수 있다.</li><li name="d832" id="d832" class="graf graf--li graf-after--li">만약 더이상 view에서 사용하지 않는다면, 적극적으로 사용되지 않는 computed value는 자동적으로 garbage collected 된다.</li><li name="b189" id="b189" class="graf graf--li graf-after--li graf--trailing">모든 computed value는 순수하며, state를 변화하는 것은 지원하지 않는다.</li></ul></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@lyhlg0201" class="p-author h-card">이용현</a> on <a href="https://medium.com/p/91d93084110"><time class="dt-published" datetime="2020-01-30T04:36:06.427Z">January 30, 2020</time></a>.</p><p><a href="https://medium.com/@lyhlg0201/mobx-%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4-91d93084110" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on October 5, 2020.</p></footer></article></body></html>
