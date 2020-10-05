@@ -6,8 +6,6 @@ import { Item } from './item'
 export const Category = ({ categories, category, selectCategory }) => {
   const containerRef = useRef(null)
 
-  console.log(categories, category)
-
   const scrollToCenter = useCallback(
     tabRef => {
       const { offsetWidth: tabWidth } = tabRef.current

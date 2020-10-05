@@ -10,7 +10,6 @@ import './index.scss'
 
 export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  console.log(rootPath)
 
   return (
     <React.Fragment>
