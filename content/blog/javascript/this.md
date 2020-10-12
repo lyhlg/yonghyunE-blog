@@ -1,5 +1,5 @@
 ---
-title: this
+title: You Don't Know JS Chapter1 - this
 date: 2020-10-12 15:10:61
 category: javascript
 thumbnail: { thumbnailSrc }
