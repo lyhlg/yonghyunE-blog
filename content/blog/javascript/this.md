@@ -181,6 +181,9 @@ var max = Math.max.apply(null, list);
 console.log(max) // 59
 ```
 
+<br />
+<br />
+
 # 어휘적 this
 ES6부터는 앞에 4가지 (일반, 암시적, 명시적, new 바인딩)규칙들을 따르지 않는 특별한 함수인 Arrow 함수가 있다.
 Arrow 함수는 _function_ 이라는 키워드를 사용하지 않고 '=>' 로 표현한다.  
