@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-export function Head({ description, lang, meta, keywords = [], title }) {
+export function Head({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -52,7 +52,7 @@ export function Head({ description, lang, meta, keywords = [], title }) {
               },
             ]
               .concat(
-                keywords.length > 0
+                keywords && keywords.length > 0
                   ? {
                     name: `keywords`,
                     content: keywords.join(`, `),
