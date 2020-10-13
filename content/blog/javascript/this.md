@@ -11,7 +11,7 @@ draft: false
 ![uDontKnowJS](img/youDontKnowJS.jpg)
 
 # 들어가기전에
-해당 Chapter를 읽으면서 프론트엔드 개발자로 업무를 진행해 나가면서 this 때문에 고통 받았는지 고통 받지 않기 위해 회피해서 써왔는지 되돌아 볼 수 있는 계기가 되었다. 이전 블로그 작성 때 Prototype을 학습하고 this의 바인딩을 학습하면서도 조금 더 이해가 잘 되었던 것 같다.  
+해당 Chapter를 읽으면서 프론트엔드 개발자로 업무를 진행해 나가면서 this 때문에 고통 받았는지 고통 받지 않기 위해 회피해서 써왔는지 되돌아 볼 수 있는 계기가 되었다. [이전 블로그](../prototype) 작성 때 Prototype을 학습하고 this의 바인딩을 학습하면서도 조금 더 이해가 잘 되었던 것 같다.  
 React를 사용할 때 (hook을 사용하기 이전 15버전 이었던가..)잘 기억이 안나는데 함수를 매번 바인딩 해서 써왔었다. 당시에는 성능이 더 좋다 라고만 이해하고 사용 했었는데 이번 학습을 통해서 왜 this로 바인딩 하는 기본 함수를 작성하였고, arrow 함수로 작성된 함수를 지양 하였는지 알 수 있었다.
 
 <br />
@@ -232,6 +232,49 @@ obj.hello() // 'chris'
 hello.call({ name: "alice" }) // 'alice'
 ```
 hello() 호출시에는 따로 지정해준 this scope가 없기 때문에 전역으로 바라보고 암시적으로 obj를 this의 범위로 한정하거나, 명시적으로 `{ name: "alice" }`를 넘겨줌으로서 this의 범위를 지정해주었다.
+
+<br />
+<br />
+
+# Arrow 함수를 썼을때 this의 binding 확인해보기
+차차 javascript를 학습하면서 arrow 함수와 기본 함수 비교를 하면서 다시한번 봐야겠다.
+
+## 기본 바인딩
+
+```javascript
+var foo = () => { console.log(this.name) }
+var name = 'Yonghyun Lee';
+foo() // 'Yonghyun Lee';
+```
+
+## 암시적 바인딩
+
+```javascript
+var foo = () => {
+    console.log(this.name);
+}
+var obj = {
+    name: 'Yonghyun Lee',
+    foo,
+}
+obj.foo(); // undefined
+```
+
+## 명시적 바인딩
+
+```javascript
+var foo = () => {
+    console.log(this.name);
+}
+var obj = {
+    name: 'Yonghyun Lee',
+    foo,
+}
+obj.foo(); // undefined
+```
+
+## new 바인딩
+<p style="color:orange">화살표 함수는 new로 호출 할 수 없다.</p>
 
 <br />
 <br />

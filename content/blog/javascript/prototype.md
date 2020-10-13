@@ -80,13 +80,14 @@ console.log(newMan.hand) // 2
 console.log(newMan.eye) // undefined
 console.log(newMan2.hand) // 2
 console.log(newMan2.eye) // undefined
+```
 
 2. 함수 앞에 new를 붙여 생성자 호출을 하게 되면 일어나는 일
    1. 새로운 객체가 만들어 진다.
    2. 새로 생성된 객체의 [[Prototype]]이 연결된다.
    3. 새로 생성된 객체는 해당 함수 호출시 this로 바인딩 된다. 
    4. 자신의 또 다른 객체를 반환하지 않는 한 new와 함께 호출된 함수는 자동으로 새로 생성된 객체를 반환한다.
-```
+
 
 <br />
 <br />
