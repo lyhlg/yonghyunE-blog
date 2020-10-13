@@ -29,6 +29,7 @@ export default ({ data, pageContext, location }) => {
   const { title, comment, siteUrl, author, sponsor } = metaData
   const { disqusShortName, utterances } = comment
   const { title: postTitle, date } = post.frontmatter
+  consolelog('pageContext', pageContext)
 
   return (
     <Layout location={location} title={title}>
