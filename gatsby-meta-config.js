@@ -12,7 +12,7 @@ module.exports = {
     linkedin: `lyhlg0201`, // Your LinkedIn account
   },
   icon: `content/assets/felog.png`, // Add your favicon
-  keywords: [`blog`],
+  keywords: [`blog`, `개발자 이용현`, `javascript`, `Frontend Developer`, `Frontend`],
   comment: {
     disqusShortName: '', // Your disqus-short-name. check disqus.com.
     utterances: 'lyhlg/yonghyune-blog', // 'JaeYeopHan/gatsby-starter-bee', // Your repository for archive comment

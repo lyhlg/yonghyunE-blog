@@ -68,6 +68,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        keywords
         configs {
           countOfInitialPost
         }

@@ -4,6 +4,7 @@ date: 2020-10-11 17:10:93
 category: javascript
 thumbnail: { thumbnailSrc }
 draft: false
+keywords: ['javascript', 'javascript this' , 'this', '자바스크립트 기초']
 ---
 
 # 자바스크립트
