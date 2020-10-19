@@ -56,11 +56,12 @@ lang: 'ko'
    - Atom, Molecules, Organisms, Template, Page 구조 구축
    - 모든 컴포넌트를 Storybook과 1:1 매칭
 2. 컴포넌트 최적화를 위해 useMemo와 useCallback 주로 활용
-3. 국제화 도입
+3. MVVM 패턴을 이용한 프로젝트 구성
+4. 국제화 도입
    - React-i18next 셋업 및 적용
-4. form 상태 관리
+5. form 상태 관리
    - React-hook-form 셋업 및 적용
-5. 마케팅 페이지 유지보수 (NextJS)
+6. 마케팅 페이지 유지보수 (NextJS)
 
 <br/>
 
@@ -103,6 +104,7 @@ $ NextJS, React, Redux, Redux-Saga, Storybook, Webpack, Typescript, Styled-compo
    - Auth 기능 개발
    - M&A 프로젝트 기능 개발
 4. 다국어 기능 개발 (한국어, 영어, 일본어, 중국어)
+5. MVVM 패턴을 이용한 프로젝트 구성
 
 <br />
 
