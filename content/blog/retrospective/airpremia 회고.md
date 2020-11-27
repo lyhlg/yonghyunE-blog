@@ -34,8 +34,6 @@ component를 만들면서 가장 어려웠던건 달력 컴포넌트였던 것 �
 > Calendar Component for Mobile  
 > ![Calendar mobile](./gif/mobile_calendar.gif)
 
-<!-- gif 삽입 -->
-
 # Good bye! Airpremia
 
 나는 에어프레미아 회사가 잘될 것이고 거기에 내가 Frontend 개발자로 기여한다는것이 얼마나 기쁜 일인지 잘 알고 있었다. 그래서 최선을 다해 좋은 퀄리티의 시스템을 구축하기 위하여 많은 고민과 결정들로 Web시스템을 구축하려고 했다.  
