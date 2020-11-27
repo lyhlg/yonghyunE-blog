@@ -71,7 +71,13 @@
   },
   "homepage": "https://lyhlg.github.io/yonghyune-blog",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "javascript",
+    "typescript",
+    "react",
+    "frontend",
+    "frontend developer",
+    "개발자"
   ],
   "license": "MIT",
   "main": "n/a",
