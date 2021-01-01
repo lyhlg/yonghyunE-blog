@@ -4,7 +4,7 @@ description: 매일 매일 어떤 일을 완수하고 commit을 한다는것은 
 date: '2019-11-03T04:15:46.078Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/3%EC%9D%BC%EC%B0%A8-git-contribution-88877c8dea57
 ---
 

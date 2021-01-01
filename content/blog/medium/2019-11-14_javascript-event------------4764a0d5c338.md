@@ -6,7 +6,7 @@ description: >-
 date: '2019-11-14T02:55:06.069Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: >-
   /@lyhlg0201/javascript-event-%EC%BA%A1%EC%B2%98%EB%A7%81-%EB%B2%84%EB%B8%94%EB%A7%81-4764a0d5c338
 ---

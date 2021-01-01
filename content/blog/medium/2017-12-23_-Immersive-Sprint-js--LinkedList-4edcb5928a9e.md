@@ -4,7 +4,7 @@ description: Linked List 란 ?
 date: '2017-12-23T08:42:56.399Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/immersive-sprint-js-linkedlist-4edcb5928a9e
 ---
 

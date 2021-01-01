@@ -4,7 +4,7 @@ description: underscore 과제를 하면서 뭐하나 “와! 쉽다” 라고 �
 date: '2017-12-08T04:11:05.003Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/javascript-underscore-js-f21c025b17eb
 ---
 

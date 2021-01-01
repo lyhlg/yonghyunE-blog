@@ -4,7 +4,7 @@ description: 자꾸 하루씩 밀려서 커밋 로그를 올리는데.. 오늘 �
 date: '2019-11-01T02:04:12.655Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/2%EC%9D%BC%EC%B0%A8-git-contribution-a1df5924dc13
 ---
 

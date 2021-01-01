@@ -4,7 +4,7 @@ description: 'codestates에서 첫번째로 받은 과제는 koans 과제였다.
 date: '2017-12-06T08:21:42.943Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/javascript-koans-1d1092f89d6e
 ---
 

@@ -6,7 +6,7 @@ description: >-
 date: '2017-12-14T06:56:01.182Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/document-getelementsbyclassname-%EA%B5%AC%ED%98%84-9e265358b0a8
 ---
 

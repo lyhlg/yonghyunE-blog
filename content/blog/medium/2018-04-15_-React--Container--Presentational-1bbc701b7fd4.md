@@ -4,7 +4,7 @@ description: Frontend 개발자로 취업하고 업무를 시작한지 일주일
 date: '2018-04-15T06:24:13.486Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/react-container-presentational-1bbc701b7fd4
 ---
 

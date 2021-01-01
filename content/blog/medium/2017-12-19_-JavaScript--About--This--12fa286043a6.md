@@ -6,7 +6,7 @@ description: >-
 date: '2017-12-19T04:32:13.668Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/javascript-about-this-12fa286043a6
 ---
 

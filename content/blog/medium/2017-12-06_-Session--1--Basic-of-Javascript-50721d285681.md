@@ -4,7 +4,7 @@ description: 변수
 date: '2017-12-06T06:02:51.500Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: >-
   /@lyhlg0201/pre-course-%EB%A5%BC-%EB%81%9D%EB%82%B4%EB%A9%B4%EC%84%9C-%EC%A0%95%EB%A6%AC-50721d285681
 ---

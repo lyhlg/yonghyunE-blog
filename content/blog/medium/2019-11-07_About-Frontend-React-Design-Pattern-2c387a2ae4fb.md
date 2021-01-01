@@ -6,7 +6,7 @@ description: >-
 date: '2019-11-07T07:30:57.545Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/about-frontend-react-design-pattern-2c387a2ae4fb
 ---
 

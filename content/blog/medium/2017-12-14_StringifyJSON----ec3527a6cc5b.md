@@ -4,7 +4,7 @@ description: stringifyJSON 함수란?
 date: '2017-12-14T06:50:09.841Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/stringifyjson-%EA%B5%AC%ED%98%84-ec3527a6cc5b
 ---
 

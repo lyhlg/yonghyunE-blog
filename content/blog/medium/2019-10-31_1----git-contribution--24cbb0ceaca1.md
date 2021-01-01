@@ -4,7 +4,7 @@ description: 오늘 부터 github에 매일 commit 을 남길수 있도록 해�
 date: '2019-10-31T02:03:38.898Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/1%EC%9D%BC%EC%B0%A8-git-contribution-24cbb0ceaca1
 ---
 

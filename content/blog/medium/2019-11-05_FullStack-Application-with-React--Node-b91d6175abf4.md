@@ -4,7 +4,7 @@ description: 이번 회사에서 프로젝트 리더로 진행하면서 여러�
 date: '2019-11-05T05:45:20.681Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/fullstack-application-with-react-node-b91d6175abf4
 ---
 

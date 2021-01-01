@@ -4,7 +4,7 @@ description: 고차함수란?
 date: '2017-12-07T09:41:57.214Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: >-
   /@lyhlg0201/high-order-function-%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-a94ee6674c8c
 ---

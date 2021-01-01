@@ -6,7 +6,7 @@ description: >-
 date: '2018-01-14T14:32:03.249Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/immersive-sprint-js-2-%EC%A3%BC%EC%B0%A8-3d53de65ddc7
 ---
 

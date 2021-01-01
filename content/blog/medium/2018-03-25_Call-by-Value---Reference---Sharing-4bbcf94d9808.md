@@ -4,7 +4,7 @@ description: 'Call by Value, Call By Reference, Call By Sharing'
 date: '2018-03-25T06:06:29.482Z'
 category: 'javascript'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/call-by-value-reference-sharing-4bbcf94d9808
 ---
 

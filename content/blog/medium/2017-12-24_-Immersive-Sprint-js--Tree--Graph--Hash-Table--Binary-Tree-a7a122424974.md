@@ -4,7 +4,7 @@ description: Code States의 Immersive Sprint를 수강하고 있다.
 date: '2017-12-24T09:29:15.520Z'
 category: 'basic'
 keywords: []
-draft: false
+draft: true
 slug: /@lyhlg0201/immersive-sprint-js-tree-graph-hash-table-binary-tree-a7a122424974
 ---
 
