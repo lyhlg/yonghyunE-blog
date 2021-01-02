@@ -21,6 +21,12 @@ lang: 'ko'
 
 # <u>Career</u>
 
+## (주)힐링페이퍼
+<div align="right">
+  <h4>2020.12 ~ 현재</h4>
+</div>
+
+
 ## (주)에어프레미아
 
 <div align="right">
