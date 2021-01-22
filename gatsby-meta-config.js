@@ -3,7 +3,7 @@ module.exports = {
   description: `Tech 블로그 & 일상 블로그`,
   author: `이용현 (Lee Yonghyun)`,
   introduction: `Frontend 개발자로 일하고 있으며, 전반적인 Tech 기술에 관심이 많습니다. 대화를 통해 좋은 서로 좋은 방향성을 찾는 것도 좋아합니다.`,
-  siteUrl: `https://space-ian.netlify.com`, // Your blog site url
+  siteUrl: `https://ian-note.dev`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `lyhlg`, // Your GitHub account
