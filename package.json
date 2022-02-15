@@ -1,12 +1,8 @@
 {
   "name": "yongs-blog",
   "private": true,
-  "description": "Gatsby blog starter template",
+  "description": "기술, 일상 블로그",
   "version": "0.1.0",
-  "author": "Jbee[JaeYeopHan]<ljyhanll@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
-  },
   "dependencies": {
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",

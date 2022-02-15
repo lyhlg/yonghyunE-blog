@@ -26,11 +26,78 @@ lang: 'ko'
   <h4>2020.12 ~ 현재</h4>
 </div>
 
+### 프런트엔드 챕터 리드
+1. 프런트엔드 챕터의 2022 목표를 중장기적으로 수립 및 수행
+   1. Vue -> React 전환 목표
+   2. 프런트엔드 배포 프로세스 구축 (PR pre-build, pre-test, convention)
+   3. 디자인 시스템 보완 및 재 구축
+2. 격월로 챕터원과 1on1
+3. 챕터에서 필요로 하는 공통 모듈을 선 제작 하여 공유
+   1. A/B Testing Component
+   2. 개발 환경에 필요한 파일 그룹을 자동으로 생성해주는 script
+
+### 강남 언니앱 내 한국/일본 이벤트 신청 웹뷰 개발
+1. 유저가 병원 또는 이벤트를 예약신청 할 수 있는 기능 개발
+2. 희망 내원일 방식, 확정/대기예약 방식을 구분하여 개발 
+3. App과 WebView과의 의존성을 제거하고, 앱 웹 개발자간의 종속을 최소화 함
+4. 한국/일본 다국어 서비스 구축
+5. 사용자 경험 및 빠른 문제 분석을 위한 데이터 독 셋업
+6. A/B Test를 통해 가설에 대한 지속적인 검증
+   - 예약 가능 일정을 3개 제출 하는 것과 1개를 제출할 때, 예약까지의 여정을 완료하는 수치가 10% 상승하여 B안을 선택 하여 운영
+   - 상담신청 이후 예약 전환을 가져가는 테스트에서도 고객이 실수로 이탈하는 문제가 발생하는 것을 발견하고 부분을 해결하고 약 10% 상승 효과를 봄
+
+### 강남 언니 병원 관리자 어드민 리액트 프로젝트 셋업 및 추가 기능 도입
+1. 새로 발생하는 도메인은 React로 개발하기 위하여 초기 셋업 진행
+   - React로 개발되는 특정 URL에 대해서는 URL Redirecting을 하도록 infra 셋업
+   - Test code 작성(UI component, Front Service Model, API Model)
+   - Frontend Service Model을 정의 및 구현
+2. 한국/일본 예약(확정예약/대기예약 방식) 기능 도입
+3. 사용자 경험 및 빠른 문제 분석을 위한 데이터 독 셋업
+4. 다국어 서비스 구축
+
+### 강남언니 디자인시스템 참여 및 개발
+1. 강남언니 앱(ios / android), 웹에서 공통으로 사용되는 cell 디자인 시스템 스펙 정의 및 구현
+2. 강남언니 어드민에서 사용되는 welchis 디자인 시스템 스펙 정의 및 구현
+   - Snackbar Component같은 경우에는 구축 뿐만 아니라 [npm 등록](https://www.npmjs.com/package/react-snackbar-ui-customizable)하여 관리
+3. 작성되는 디자인 시스템 컴포넌트에 대해 테스트
+   1. 디자이너분들의 QA를 위해 Storybook chromatic 으로 Feedback 채널 구축
+   2. Component unit test 진행
+4. npm private repository 운영
+
+### 병원 웹 사이트 신규 구축
+> 병원의 초기 구축에 필요한 Product 개발
+1. Design system 구축 (fill Design system)
+   - 초진 설문지와 평가시스템에 사용되는 공통 컴포넌트를 개발
+   - vue 기반 병원 DS시스템 구축
+
+2. 초진 설문지 구축
+   - 기존 병원들은 병원에서 초진 설문지를 종이로 작성하는 과정을, 병원 고객이 방문전에 미리 초진 설문지를 웹 URL로 받고 방문시 빠르게 진료를 받을 수 있는 시스템을 구축
+   - 미리 공통 컴포넌트를 구축된 Design system을 활용하여 개발
+
+3. 평가 시스템 구축
+   - 병원 고객의 피드백을 위해 서비스를 이용한 고객들에게 병원 평가 후기를 작성할 수 있도록 하는 시스템 구축
+   - 미리 공통 컴포넌트를 구축된 Design system을 활용하여 개발
+
+4.  병원 홈페이지 구축 (mobile) - https://gu.clinic
+    -  병원 홈, 이벤트, 시술 예약, 둘러보기, 시술 카트 기능을 담은 웹 사이트 구축
+    -  NextJS 프레임워크를 도입하여 SEO를 고려하여 개발
+    -  MVVM 모델링을 하여서 전반적인 시스템을 구축
+    -  View는 atomic design system을 이용하여 구축
+    -  amplitude를 연동하여 사용자 행동 분석
+    -  서버와의 통신을 protobuf를 사용함으로서, api spec 문서를 proto interface로 정의하여 사용
+    -  storybook을 이용한 UI 테스트 및 @testing-library/react를 이용하여 interface 테스트를 진행
+    -  유저 로그인 정보 없이 카트 정보를 기억 하기위해 redux로 구축 하였고, localStorage를 이용하여 사용자가 담은 시술상품을 기억하도록 관리
+
+##### 기술스택
+
+```bash
+NextJS, Redux, Recoil, React-query, NuxtJS, submodule, storybook, protobuf, storybook, jest, @testing-library/react, @vue/test-utils, react-i18n
+```
 
 ## (주)에어프레미아
 
 <div align="right">
-  <h4>2020.01 ~ 현재</h4>
+  <h4>2020.01 ~ 2020.11</h4>
 </div>
 
 **<u>웹/모바일 에어프레미아 항공권 예매 페이지 신규 구축 개발</u>**

@@ -72,4 +72,4 @@ yarn-error.log
 .netlify
 
 # private resume
-content/__about/resume-add.md
+content/__about/resume-draft.md
