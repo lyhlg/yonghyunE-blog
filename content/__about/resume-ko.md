@@ -26,46 +26,44 @@ lang: 'ko'
   <h4>2020.12 ~ 현재</h4>
 </div>
 
-### 프런트엔드 챕터 리드
-1. 프런트엔드 챕터의 2022 목표를 중장기적으로 수립 및 수행
-   1. Vue -> React 전환 목표
-   2. 프런트엔드 배포 프로세스 구축 (PR pre-build, pre-test, convention)
-   3. 디자인 시스템 보완 및 재 구축
-2. 격월로 챕터원과 1on1
-3. 챕터에서 필요로 하는 공통 모듈을 선 제작 하여 공유
-   1. A/B Testing Component
-   2. 개발 환경에 필요한 파일 그룹을 자동으로 생성해주는 script
-
 ### 강남 언니앱 내 한국/일본 이벤트 신청 웹뷰 개발
-1. 유저가 병원 또는 이벤트를 예약신청 할 수 있는 기능 개발
-2. 희망 내원일 방식, 확정/대기예약 방식을 구분하여 개발 
-3. App과 WebView과의 의존성을 제거하고, 앱 웹 개발자간의 종속을 최소화 함
+> 이벤트 신청 신규 기능 도입, 한국 일본 내 병원 중 예약병원 수 확보 및 지속적인 병원 유치를 위한 신규 및 보수 개발
+1. 이벤트 예약 신청 페이지 개발
+2. 이벤트, 병원 예약 상태에 따른 분기 페이지 제공
+3. 앱과 웹의의 의존성을 제거하고, 앱/웹 개발자간의 종속을 최소화를 지향한 구조로 구현
 4. 한국/일본 다국어 서비스 구축
-5. 사용자 경험 및 빠른 문제 분석을 위한 데이터 독 셋업
-6. A/B Test를 통해 가설에 대한 지속적인 검증
-   - 예약 가능 일정을 3개 제출 하는 것과 1개를 제출할 때, 예약까지의 여정을 완료하는 수치가 10% 상승하여 B안을 선택 하여 운영
+5. 데이터 독을 이용한 디버깅 할 수 있는 환경을 구축
+6. 앰플리튜드를 이용한 유저 행동 분석 및 예약까지의 퍼널 개선
    - 상담신청 이후 예약 전환을 가져가는 테스트에서도 고객이 실수로 이탈하는 문제가 발생하는 것을 발견하고 부분을 해결하고 약 10% 상승 효과를 봄
+7. A/B Test를 통해 가설에 대한 지속적인 검증
+   - 예약 가능 일정을 3개 제출 하는 것과 1개를 제출할 때, 예약까지의 여정을 완료하는 수치가 10% 상승하여 B안을 선택 하여 운영
 
-### 강남 언니 병원 관리자 어드민 리액트 프로젝트 셋업 및 추가 기능 도입
-1. 새로 발생하는 도메인은 React로 개발하기 위하여 초기 셋업 진행
-   - React로 개발되는 특정 URL에 대해서는 URL Redirecting을 하도록 infra 셋업
-   - Test code 작성(UI component, Front Service Model, API Model)
+### 강남 언니 병원 관리자 어드민 프로젝트 셋업, 신규 기능 도입 및 유지보수
+> 어드민 페이지를 React로 개편 및 어드민 프로젝트에 맞도록 도메인 설계
+1. 신규 도메인은 React로 개발하기 위하여 초기 셋업 진행
+   - 신규 프로젝트의 infra 및 도메인 분기 구조 셋업
    - Frontend Service Model을 정의 및 구현
-2. 한국/일본 예약(확정예약/대기예약 방식) 기능 도입
-3. 사용자 경험 및 빠른 문제 분석을 위한 데이터 독 셋업
+   - Test code 작성
+     - UI component, Front Service Model, API Model
+2. 한국/일본 예약(확정예약/대기예약 방식)신규 기능 도입
+3. 데이터 독을 이용한 디버깅 할 수 있는 환경을 구축
 4. 다국어 서비스 구축
+5. 기존 Vue로 구성된 페이지 유지보수
 
 ### 강남언니 디자인시스템 참여 및 개발
-1. 강남언니 앱(ios / android), 웹에서 공통으로 사용되는 cell 디자인 시스템 스펙 정의 및 구현
+> 고객 Product, 병원 Product에 사용되는 디자인 시스템 구축에 적극적인 드라이브 및 높은 기여
+1. 강남언니 앱(ios / android)과 웹에서 공통으로 사용되는 cell 디자인 시스템 스펙 정의 및 구현
+   - 디자인 스펙은 디자이너와 프런트엔드개발자가 동반되어 스펙 정의
 2. 강남언니 어드민에서 사용되는 welchis 디자인 시스템 스펙 정의 및 구현
-   - Snackbar Component같은 경우에는 구축 뿐만 아니라 [npm 등록](https://www.npmjs.com/package/react-snackbar-ui-customizable)하여 관리
+   - 개인적으로 Snackbar Component는 [npm 등록](https://www.npmjs.com/package/react-snackbar-ui-customizable)하여 관리
+   - [Snackbar 구축 관련 블로그](https://ian-note.dev/developer/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%8A%A4%EB%82%B5%EB%B0%94-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%9C%EC%9E%91%ED%95%98%EA%B8%B0/)
 3. 작성되는 디자인 시스템 컴포넌트에 대해 테스트
-   1. 디자이너분들의 QA를 위해 Storybook chromatic 으로 Feedback 채널 구축
-   2. Component unit test 진행
-4. npm private repository 운영
+   - Component unit test 진행 (jest, testing-library)
+   - 디자이너분들의 QA를 위해 Storybook chromatic 으로 Feedback 채널 구축
+4. 구축된 디자인 시스템(cell, welchis)은 npm private repository 운영
 
 ### 병원 웹 사이트 신규 구축
-> 병원의 초기 구축에 필요한 Product 개발
+> 병원의 초기 구축에 필요한 Product 개발, 현재 개발 완료 되었고, 강남언니 내의 높은 랭크에 있는 병원으로 자리 잡음
 1. Design system 구축 (fill Design system)
    - 초진 설문지와 평가시스템에 사용되는 공통 컴포넌트를 개발
    - vue 기반 병원 DS시스템 구축
@@ -84,16 +82,28 @@ lang: 'ko'
     -  MVVM 모델링을 하여서 전반적인 시스템을 구축
     -  View는 atomic design system을 이용하여 구축
     -  amplitude를 연동하여 사용자 행동 분석
+       -  각종 product(이벤트 또는 시술 상품)에 대한 분석
+       -  예약 완료 까지의 여정 분석
     -  서버와의 통신을 protobuf를 사용함으로서, api spec 문서를 proto interface로 정의하여 사용
     -  storybook을 이용한 UI 테스트 및 @testing-library/react를 이용하여 interface 테스트를 진행
     -  유저 로그인 정보 없이 카트 정보를 기억 하기위해 redux로 구축 하였고, localStorage를 이용하여 사용자가 담은 시술상품을 기억하도록 관리
 
-##### 기술스택
 
-```bash
-NextJS, Redux, Recoil, React-query, NuxtJS, submodule, storybook, protobuf, storybook, jest, @testing-library/react, @vue/test-utils, react-i18n
-```
-
+### 프런트엔드 챕터 리드
+> 챕터 구성원의 성장, 챕터내의 프로젝트가 성과로 반영 될 수 있는 계획 수립
+1. 프런트엔드 챕터의 2022 목표를 중장기적으로 수립 및 수행
+   - 신규 프로덕에 대해서 NuxtJS -> NextJS 전환 목표
+   - 프런트엔드 배포 프로세스 개선
+      - PR pre-build, pre-test, convention check, tag version 관리
+   - 디자인 시스템 보완 및 재 구축
+2. 공통 모듈 선 제작 및 공유
+   - A/B Testing Component
+   - 개발 환경에 필요한 파일 그룹을 자동으로 생성해주는 script
+   - 신규 프로젝트 초기 구조 설계
+   - 캘린더와 같은 자주 쓰이는 컴포넌트를 UI가 없는 Headless component로 구현 하여 기능 재사용을 할 수 있도록 제공
+<br />
+<br />
+<br />
 ## (주)에어프레미아
 
 <div align="right">
@@ -103,47 +113,27 @@ NextJS, Redux, Recoil, React-query, NuxtJS, submodule, storybook, protobuf, stor
 **<u>웹/모바일 에어프레미아 항공권 예매 페이지 신규 구축 개발</u>**
 
 ### 웹/모바일 신규 프로젝트 개발
+1. 웹 데스크탑 프로젝트
+   - 프로젝트 초기 구축
+     - NextJS, 컨벤션(Lint, Directory 구조, Core 모듈)
+   - 페이지 개발 및 기능 구현
+     - 인증화면, 티켓팅화면, 공지사항 등
+2. 웹 모바일 프로젝트
+   - 프로젝트 초기 구축
+     - React, Webpack, 컨벤션(Lint, Directory 구조, Core 모듈)
+   - CapacitorJS 도입을 통해 웹앱 개발
 
-#### 웹 데스크톱 프로젝트
-
-1. 프로젝트 초기 구축
-   - NextJS, 컨벤션(Lint, Directory 구조, Core 모듈)
-2. 페이지 개발 및 기능 구현
-   - Auth
-   - Ticket
-   - Dark site
-   - Notice
-
-#### 웹 모바일 프로젝트
-
-1. 프로젝트 초기 구축
-   - React, Webpack, 컨벤션(Lint, Directory 구조, Core 모듈)
-2. 페이지 개발 및 기능 구현
-   - Auth
-   - 안내 Page
-3. CapacitorJS 도입
-
-#### 공통
-
-1. Design 시스템 구축 및 Atomic Architecture를 통한 컴포넌트 개발
-   - Atom, Molecules, Organisms, Template, Page 구조 구축
-   - 모든 컴포넌트를 Storybook과 1:1 매칭
-2. 컴포넌트 최적화를 위해 useMemo와 useCallback 주로 활용
-3. MVVM 패턴을 이용한 프로젝트 구성
-4. 국제화 도입
+3. 에어프레미아 디자인 시스템 구축
+   - Atomic Architecture를 기준으로 컴포넌트 단위를 설계
+   - 모든 컴포넌트가 Storybook UI Testing이 될 수 있도록 구성
+4. MVVM 패턴을 이용한 프로젝트 구성
+5. 국제화 도입
    - React-i18next 셋업 및 적용
-5. form 상태 관리
-   - React-hook-form 셋업 및 적용
-6. 마케팅 페이지 유지보수 (NextJS)
+
+### 마케팅 페이지 유지보수
+1. 마케팅에 사용되는 Nextjs로 구성된 페이지 유지보수
 
 <br/>
-
-##### 기술스택
-
-```bash
-$ NextJS, React, Redux, Redux-Saga, Storybook, Webpack, Typescript, Styled-component, Axios, React-i18next, CapacitorJS
-```
-
 <br />
 <br />
 
@@ -164,7 +154,7 @@ $ NextJS, React, Redux, Redux-Saga, Storybook, Webpack, Typescript, Styled-compo
 2. 비지니스 로직과 UI 로직을 구분
    - 비지니스 로직과 UI 로직을 구분 짓기 위하여 React - Redux에 비지니스 로직에 맞게 분리
 3. Webview (Cordova)를 통한 모바일 개발 및 유지보수
-4. 웹과 모바일 프로젝트에서 공통으로 사용하는 데이터를 위해 GIT Submodule 도입
+4. 웹과 모바일 프로젝트에서 공통으로 사용하는 데이터를 위해 Git Submodule 도입
 5. 디렉토리 구조를 비지니스 로직에 맞도록 재 설계 (Container Presenter Pattern 적용)
 6. 다국어 기능 개발 (한국어, 영어, 일본어, 중국어)
 7. 팀 Leader 업무 수행
@@ -180,13 +170,6 @@ $ NextJS, React, Redux, Redux-Saga, Storybook, Webpack, Typescript, Styled-compo
 5. MVVM 패턴을 이용한 프로젝트 구성
 
 <br />
-
-##### 기술스택
-
-```bash
-$ React, Redux, Redux-Thunk, Redux-Saga, Websocket, Webpack, SCSS, Axios
-```
-
 <br />
 <br />
 
@@ -239,11 +222,6 @@ $ React, Redux, Redux-Thunk, Redux-Saga, Websocket, Webpack, SCSS, Axios
   - 해당 프로젝트는 모든 기획부터 개발까지 진행함
   - Text로 구조잡기, Mock-up, Story board화 하는 기획 단계를 통해 프로젝트의 기반을 잡고 개발 진행
 
-##### 기술스택
-
-```bash
-$ React, Node, Express, MongoDB, Mongoose, GraphQL, AWS EC2, AWS S3
-```
 
 <br />
 <br />
@@ -279,9 +257,12 @@ $ React, Node, Express, MongoDB, Mongoose, GraphQL, AWS EC2, AWS S3
 - CSS, SCSS, CSS in JS (Styled-component)
 - Typescript(Javascript)
 - React, Redux, Redux-thunk, Redux-saga, NextJS
+- React-query
+- Recoil
 - Storybook
 - Webpack
 - GIT, GIT Submodule, GIT Flow
 - Atomic Architecture
-- Jest
-- Zeplin, Bitbucket, Jira, Slack ...
+- Jest, testing-library/react, MSW
+- AzureDevOps, Figma, Zeplin, Bitbucket, Jira, Slack ...
+
