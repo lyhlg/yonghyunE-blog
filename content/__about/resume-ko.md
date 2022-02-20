@@ -6,7 +6,17 @@ lang: 'ko'
 
 # 개발자 이용현
 
-<div align="right"><a href="mailto:lyhlg0201@gmail.com"><h5>lyhlg0201@gmail.com</h5></a></div>
+<div align="right">
+   <a href="https://github.com/lyhlg">
+      <span>Github  </span>
+   </a>
+   <a href="https://ian-note.dev/">
+      <span>Blog  </span>
+   </a>
+   <a href="mailto:lyhlg0201@gmail.com">
+      <span>Mail</span>
+   </a>
+</div>
 
 > 타인에게 **영감**이 되고,
 >
