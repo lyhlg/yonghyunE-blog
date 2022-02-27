@@ -4,6 +4,12 @@ module.exports = {
   siteMetadata: metaConfig,
   plugins: [
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [metaConfig.ga],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -65,13 +71,6 @@ module.exports = {
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-emoji`,
         ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        trackingId: metaConfig.ga,
-        head: true,
       },
     },
     {
